@@ -254,25 +254,37 @@ img { display: block; max-width: 100%; }
 .actu-main-title { font-size: 16px; font-weight: 700; color: #fff; line-height: 1.25; margin-bottom: 8px; }
 .actu-main-text { font-size: 11px; color: rgba(255,255,255,.65); line-height: 1.5; }
 .actu-card {
-  display: flex; gap: 14px; background: #fff;
-  border: 1px solid #e8e8e8; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-  padding: 12px; cursor: pointer; transition: background .12s; align-items: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  cursor: pointer;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: #222;
 }
-.actu-card:hover { background: #fafafa; }
-.actu-card-thumb {
-  width: 110px; height: 90px; flex-shrink: 0; border-radius: 6px;
-  overflow: hidden; display: flex; align-items: center; justify-content: center;
-  font-size: 8px; color: #666; text-align: center; line-height: 1.3;
+.actu-card:hover .actu-card-bg-img { transform: scale(1.03); }
+.actu-card-bg-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  transition: transform .3s ease;
+  z-index: 1;
 }
-.actu-card-thumb img {
-  width: 100%; height: 100%; object-fit: cover; object-position: center center;
+.actu-card-overlay {
+  position: absolute; inset: 0; z-index: 2;
+  background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.1) 60%, rgba(0,0,0,0) 100%);
 }
-.actu-card-thumb.g { background: #b8d8b0; }
-.actu-card-thumb.b { background: #b0c8e0; }
-.actu-card-body { flex: 1; min-width: 0; }
-.actu-card-tag { font-size: 9px; color: #999; letter-spacing: .05em; text-transform: uppercase; margin-bottom: 3px; }
-.actu-card-title { font-size: 12.5px; font-weight: 700; color: #111; line-height: 1.3; margin-bottom: 4px; }
-.actu-card-text { font-size: 11px; color: #666; line-height: 1.4; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
+.actu-card-thumb { display: none; }
+.actu-card-body {
+  position: relative; z-index: 3;
+  padding: 14px 16px;
+}
+.actu-card-tag { font-size: 9px; color: rgba(255,255,255,0.6); letter-spacing: .05em; text-transform: uppercase; margin-bottom: 4px; }
+.actu-card-title { font-size: 14px; font-weight: 700; color: #fff; line-height: 1.3; margin-bottom: 0; }
+.actu-card-text { display: none; }
 
 /* ═══════════════════════════════════
    AGENDA
@@ -658,19 +670,17 @@ footer { background: #1a1a1a; color: #fff; padding: 40px 40px 18px; }
       </div>
     </div>
     <div class="actu-card">
-      <div class="actu-card-thumb g"><img src="/assets/expo.jpg" alt="" onerror="this.style.display='none'"></div>
+      <img class="actu-card-bg-img" src="/assets/expo.jpg" alt="Exposition" onerror="this.parentElement.style.background='#2a4a5a'">
+      <div class="actu-card-overlay"></div>
       <div class="actu-card-body">
-        <div class="actu-card-tag">{{DATA:IMAGE|IMAGE_2}}</div>
         <div class="actu-card-title">Exposition : Regards croisés</div>
-        <div class="actu-card-text">Exposition : Regards croisés taus contraïnas simes nsiniomment eos iia ootse…</div>
       </div>
     </div>
     <div class="actu-card">
-      <div class="actu-card-thumb b"><img src="/assets/sport.jpg" alt="" onerror="this.style.display='none'"></div>
+      <img class="actu-card-bg-img" src="/assets/sport.jpg" alt="Pass Sport" onerror="this.parentElement.style.background='#2a3a5a'">
+      <div class="actu-card-overlay"></div>
       <div class="actu-card-body">
-        <div class="actu-card-tag">{{DATA:IMAGE|IMAGE_3}}</div>
         <div class="actu-card-title">Nouveau : Pass Sport</div>
-        <div class="actu-card-text">Nouveau : Pass Sport is sietad avec ttien-occors Im áriners otes more information…</div>
       </div>
     </div>
   </div>
