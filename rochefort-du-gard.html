@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rochefort-du-Gard — Mairie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: #f4f4f4;
+  color: #111;
+  font-size: 14px;
+  line-height: 1.5;
+}
+a { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
+
+/* ═══════════════════════════════════
+   NAV PILL FLOTTANTE
+═══════════════════════════════════ */
+.nav-wrap {
+  position: absolute;
+  top: 14px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 200;
+  width: calc(100% - 48px);
+  max-width: 920px;
+}
+.nav {
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(14px);
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px 0 20px;
+  height: 46px;
+  gap: 0;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.12);
+}
+.nav-logo {
+  font-size: 13px; font-weight: 700; color: #111;
+  white-space: nowrap; margin-right: 28px; letter-spacing: -0.01em;
+}
+.nav-links {
+  display: flex; gap: 22px; flex: 1; align-items: center;
+}
+.nav-links a {
+  font-size: 12px; color: #444; font-weight: 400; white-space: nowrap;
+  transition: color .15s;
+}
+.nav-links a.active { font-weight: 600; color: #111; }
+.nav-links a:hover { color: #111; }
+.nav-right {
+  display: flex; align-items: center; gap: 8px; margin-left: auto;
+}
+.nav-search-btn {
+  background: none; border: none; cursor: pointer; color: #555;
+  display: flex; align-items: center; padding: 6px;
+}
+.nav-btn {
+  background: #fff; color: #111; border: 1.5px solid #c8c8c8;
+  padding: 6px 16px; font-size: 12px; font-weight: 500;
+  cursor: pointer; border-radius: 40px; font-family: inherit;
+  white-space: nowrap; transition: background .12s;
+}
+.nav-btn:hover { background: #f2f2f2; }
+
+/* Hamburger */
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 8px; margin-left: 4px;
+}
+.hamburger span {
+  display: block; width: 20px; height: 2px;
+  background: #111; border-radius: 2px; transition: all .25s;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Menu mobile overlay */
+.mobile-menu {
+  display: none;
+  position: fixed; inset: 0; z-index: 300;
+  background: rgba(255,255,255,0.98);
+  flex-direction: column;
+  padding: 80px 32px 40px;
+  gap: 0;
+  overflow-y: auto;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu-close {
+  position: absolute; top: 18px; right: 20px;
+  background: none; border: none; cursor: pointer;
+  font-size: 26px; color: #111; line-height: 1;
+}
+.mobile-menu a {
+  font-size: 22px; font-weight: 700; color: #111;
+  padding: 14px 0; border-bottom: 1px solid #eee;
+  display: block; transition: color .15s;
+}
+.mobile-menu a:hover { color: #555; }
+.mobile-menu .mm-sub {
+  font-size: 13px; font-weight: 500; color: #888;
+  padding: 8px 0 8px 16px; border-bottom: 1px solid #f0f0f0;
+  display: block;
+}
+.mobile-menu .mm-sub:hover { color: #333; }
+.mm-section-label {
+  font-size: 10px; font-weight: 800; letter-spacing: .1em;
+  text-transform: uppercase; color: #bbb; margin: 20px 0 4px;
+}
+.mobile-menu .nav-btn-mobile {
+  margin-top: 24px; background: #111; color: #fff;
+  border: none; padding: 14px 28px; border-radius: 40px;
+  font-size: 14px; font-weight: 600; cursor: pointer;
+  font-family: inherit; width: 100%; text-align: center;
+}
+
+/* ═══════════════════════════════════
+   HERO
+═══════════════════════════════════ */
+.hero {
+  position: relative;
+  height: 420px; overflow: hidden;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  background: linear-gradient(160deg,#2d4a35 0%,#4a7048 35%,#6a9060 60%,#557a4a 100%);
+}
+.hero-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center 35%;
+  z-index: 1;
+}
+.hero-overlay {
+  position: absolute; inset: 0; z-index: 2;
+  background: linear-gradient(180deg,
+    rgba(10,18,12,0.06) 0%,
+    rgba(10,18,12,0.0) 28%,
+    rgba(10,18,12,0.45) 72%,
+    rgba(10,18,12,0.60) 100%);
+}
+.hero-content {
+  position: relative; z-index: 3;
+  text-align: center; margin-top: 32px;
+}
+.hero-title {
+  font-size: clamp(58px,10.5vw,100px);
+  font-weight: 800; color: #fff; text-transform: uppercase;
+  line-height: .92; letter-spacing: -0.02em;
+  text-shadow: 0 2px 30px rgba(0,0,0,0.32),0 1px 6px rgba(0,0,0,0.22);
+}
+.hero-scroll {
+  position: absolute; bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  color: rgba(255,255,255,0.88); font-size: 11px;
+  letter-spacing: .05em; padding-bottom: 18px;
+}
+.hero-scroll svg {
+  width: 18px; height: 18px; stroke: rgba(255,255,255,0.88);
+  fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* ═══════════════════════════════════
+   RACCOURCIS
+═══════════════════════════════════ */
+.shortcuts-wrap { background: #f4f4f4; padding: 0 24px; }
+.shortcuts {
+  display: flex; background: #fff;
+  border: 1px solid #e2e2e0; border-top: none;
+  border-radius: 0 0 14px 14px;
+  max-width: 860px; margin: 0 auto; overflow: hidden;
+}
+.sc {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; gap: 6px;
+  padding: 16px 6px 14px;
+  border-right: 1px solid #e8e8e5;
+  cursor: pointer; text-decoration: none; transition: background .12s;
+}
+.sc:last-child { border-right: none; }
+.sc:hover { background: #f5f5f5; }
+.sc svg { width: 24px; height: 24px; stroke: #222; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.sc span { font-size: 9.5px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: #222; }
+
+/* ═══════════════════════════════════
+   LAYOUT COMMUN
+═══════════════════════════════════ */
+.main { max-width: 860px; margin: 0 auto; padding: 0 24px 0; }
+.section-title { font-size: 20px; font-weight: 700; color: #111; margin: 40px 0 16px; }
+.section-subtitle { font-size: 13px; color: #888; margin-top: -10px; margin-bottom: 18px; }
+.see-all {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 12px; font-weight: 600; color: #111;
+  border: 1.5px solid #ccc; border-radius: 40px;
+  padding: 6px 16px; margin-top: 16px; transition: background .12s;
+}
+.see-all:hover { background: #f0f0f0; }
+
+/* ═══════════════════════════════════
+   ACTUALITÉS
+═══════════════════════════════════ */
+.actu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.actu-main {
+  grid-row: span 2; position: relative; overflow: hidden;
+  cursor: pointer; background: #2a4830; min-height: 280px;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  border-radius: 8px;
+}
+.actu-main-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+.actu-main-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background: linear-gradient(135deg,#1e3a24 0%,#3a6030 40%,#568050 70%,#3e6040 100%);
+}
+.actu-main-overlay {
+  position: absolute; inset: 0; z-index: 2;
+  background: linear-gradient(to top,rgba(0,0,0,.82) 0%,rgba(0,0,0,.28) 52%,rgba(0,0,0,.04) 100%);
+}
+.actu-main-body { position: relative; z-index: 3; padding: 18px; }
+.actu-tag { font-size: 9px; color: rgba(255,255,255,.55); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 5px; }
+.actu-main-title { font-size: 16px; font-weight: 700; color: #fff; line-height: 1.25; margin-bottom: 8px; }
+.actu-main-text { font-size: 11px; color: rgba(255,255,255,.65); line-height: 1.5; }
+.actu-card {
+  display: flex; gap: 10px; background: #fff;
+  border: 1px solid #e8e8e8; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  padding: 10px; cursor: pointer; transition: background .12s;
+}
+.actu-card:hover { background: #fafafa; }
+.actu-card-thumb {
+  width: 68px; height: 68px; flex-shrink: 0; border-radius: 6px;
+  object-fit: cover; display: flex; align-items: center; justify-content: center;
+  font-size: 8px; color: #666; text-align: center; padding: 4px; line-height: 1.3;
+}
+.actu-card-thumb.g { background: #b8d8b0; }
+.actu-card-thumb.b { background: #b0c8e0; }
+.actu-card-body { flex: 1; min-width: 0; }
+.actu-card-tag { font-size: 9px; color: #999; letter-spacing: .05em; text-transform: uppercase; margin-bottom: 3px; }
+.actu-card-title { font-size: 12.5px; font-weight: 700; color: #111; line-height: 1.3; margin-bottom: 4px; }
+.actu-card-text { font-size: 11px; color: #666; line-height: 1.4; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
+
+/* ═══════════════════════════════════
+   AGENDA
+═══════════════════════════════════ */
+.agenda-section { margin-top: 48px; }
+.agenda-hr { border: none; border-top: 1.5px solid #ddd; margin: 14px 0 0; }
+.ag-row {
+  display: grid;
+  grid-template-columns: 90px 24px 1fr 108px;
+  align-items: start;
+  border-bottom: 1px solid #e5e5e5; padding: 20px 0;
+}
+.ag-date { text-align: right; }
+.ag-daynum { font-size: 42px; font-weight: 800; color: #111; line-height: 1; display: block; }
+.ag-month { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #888; display: block; margin-top: 1px; }
+.ag-dot-col { display: flex; justify-content: center; padding-top: 15px; }
+.ag-dot { width: 8px; height: 8px; border-radius: 50%; background: #111; }
+.ag-info { padding-left: 14px; }
+.ag-cat { font-size: 9.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #999; margin-bottom: 4px; }
+.ag-title { font-size: 14px; font-weight: 700; color: #111; line-height: 1.3; margin-bottom: 3px; }
+.ag-detail { font-size: 11.5px; color: #666; line-height: 1.4; }
+.ag-link { display: inline-block; font-size: 11.5px; font-weight: 600; color: #111; margin-top: 7px; }
+.ag-link:hover { text-decoration: underline; }
+.ag-thumb-col { display: flex; align-items: flex-start; justify-content: flex-end; padding-top: 2px; }
+.ag-thumb { width: 100px; height: 70px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 8.5px; color: #666; text-align: center; padding: 4px; line-height: 1.3; }
+.ag-thumb.village { background: #b8ccd8; }
+.ag-thumb.green { background: #b5d5b5; }
+.ag-thumb.orange { background: #d8c8a0; }
+.ag-row-double {
+  display: grid;
+  grid-template-columns: 90px 24px 1fr 1px 1fr 108px;
+  align-items: start;
+  border-bottom: 1px solid #e5e5e5; padding: 20px 0;
+}
+.ag-vsep { background: #e0e0e0; align-self: stretch; margin: 2px 0; }
+.ag-info-r { padding-left: 24px; }
+.ag-date-r { display: flex; align-items: baseline; gap: 6px; margin-bottom: 4px; }
+.ag-daynum-r { font-size: 42px; font-weight: 800; color: #111; line-height: 1; }
+.ag-month-r { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #888; }
+
+/* ═══════════════════════════════════
+   SERVICES EN LIGNE
+═══════════════════════════════════ */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.service-card {
+  background: #fff; border: 1px solid #e8e8e8; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  padding: 20px 16px; text-align: center; cursor: pointer;
+  transition: box-shadow .15s, transform .15s; text-decoration: none;
+}
+.service-card:hover { box-shadow: 0 4px 18px rgba(0,0,0,.09); transform: translateY(-2px); }
+.service-card svg { width: 30px; height: 30px; stroke: #2d6a3a; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; margin: 0 auto 10px; }
+.service-card-title { font-size: 12px; font-weight: 700; color: #111; line-height: 1.3; }
+.service-card-sub { font-size: 10.5px; color: #888; margin-top: 4px; line-height: 1.3; }
+
+/* ═══════════════════════════════════
+   VIE PRATIQUE
+═══════════════════════════════════ */
+.pratique-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.pratique-card {
+  background: #fff; border: 1px solid #e8e8e8; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  padding: 20px; display: flex; align-items: flex-start; gap: 14px;
+  cursor: pointer; transition: background .12s;
+}
+.pratique-card:hover { background: #fafafa; }
+.pratique-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: #edf5ee; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.pratique-icon svg { width: 20px; height: 20px; stroke: #2d6a3a; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.pratique-card-title { font-size: 13px; font-weight: 700; color: #111; margin-bottom: 4px; }
+.pratique-card-text { font-size: 11.5px; color: #666; line-height: 1.4; }
+.pratique-horaires {
+  background: #1a1a1a; border-radius: 10px; padding: 20px;
+  grid-column: span 2;
+}
+.pratique-horaires h3 { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 14px; }
+.horaires-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 8px; }
+.horaire-jour { text-align: center; }
+.horaire-jour-label { font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #888; margin-bottom: 6px; }
+.horaire-jour-hours {
+  background: #2a2a2a; border-radius: 6px; padding: 8px 4px;
+  font-size: 11px; color: #fff; line-height: 1.4; text-align: center;
+}
+.horaire-jour-hours.closed { color: #666; font-style: italic; }
+
+/* ═══════════════════════════════════
+   ÉLUS
+═══════════════════════════════════ */
+.elus-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; }
+.elu-card {
+  background: #fff; border: 1px solid #e8e8e8; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  overflow: hidden; text-align: center; cursor: pointer;
+}
+.elu-photo {
+  width: 100%; aspect-ratio: 1; object-fit: cover;
+  background: #dde8dd;
+  display: flex; align-items: center; justify-content: center; font-size: 32px; color: #888;
+}
+.elu-body { padding: 12px 10px; }
+.elu-name { font-size: 12px; font-weight: 700; color: #111; margin-bottom: 3px; }
+.elu-role { font-size: 10.5px; color: #888; line-height: 1.3; }
+
+/* ═══════════════════════════════════
+   URBANISME
+═══════════════════════════════════ */
+.urba-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+.urba-card {
+  background: #fff; border: 1px solid #e8e8e8; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  padding: 18px; cursor: pointer; transition: background .12s;
+}
+.urba-card:hover { background: #fafafa; }
+.urba-badge {
+  display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: .07em;
+  text-transform: uppercase; padding: 3px 8px; border-radius: 20px;
+  margin-bottom: 10px;
+}
+.urba-badge.actif { background: #e8f5e9; color: #2d6a3a; }
+.urba-badge.info  { background: #e3f0fb; color: #1a5a9a; }
+.urba-badge.doc   { background: #f5f0e8; color: #7a5c1e; }
+.urba-title { font-size: 13px; font-weight: 700; color: #111; margin-bottom: 6px; line-height: 1.3; }
+.urba-text { font-size: 11.5px; color: #666; line-height: 1.4; }
+.urba-date { font-size: 10px; color: #aaa; margin-top: 10px; }
+
+/* ═══════════════════════════════════
+   ASSOCIATIONS
+═══════════════════════════════════ */
+.asso-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+.asso-card {
+  background: #fff; border: 1px solid #e8e8e8; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  padding: 16px; display: flex; align-items: center; gap: 14px;
+  cursor: pointer; transition: background .12s;
+}
+.asso-card:hover { background: #fafafa; }
+.asso-icon {
+  width: 44px; height: 44px; border-radius: 10px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center; font-size: 20px;
+}
+.asso-icon.sport  { background: #e8f5e9; }
+.asso-icon.culture{ background: #fce4ec; }
+.asso-icon.nature { background: #e0f2f1; }
+.asso-icon.senior { background: #fff3e0; }
+.asso-icon.youth  { background: #ede7f6; }
+.asso-icon.music  { background: #e3f2fd; }
+.asso-name { font-size: 12.5px; font-weight: 700; color: #111; margin-bottom: 3px; }
+.asso-type { font-size: 10.5px; color: #888; }
+
+/* ═══════════════════════════════════
+   CONTACT & ACCÈS
+═══════════════════════════════════ */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 64px; }
+.contact-card {
+  background: #fff; border: 1px solid #e8e8e8; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); padding: 22px;
+}
+.contact-card h3 { font-size: 14px; font-weight: 700; color: #111; margin-bottom: 14px; }
+.contact-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; }
+.contact-row svg { width: 17px; height: 17px; stroke: #2d6a3a; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; margin-top: 1px; }
+.contact-row-text { font-size: 12.5px; color: #444; line-height: 1.5; }
+.contact-row-text strong { color: #111; font-weight: 600; display: block; }
+.contact-form { display: flex; flex-direction: column; gap: 10px; }
+.contact-input {
+  background: #f5f5f5; border: 1px solid #e5e5e5; border-radius: 8px;
+  padding: 10px 14px; font-family: inherit; font-size: 13px; color: #111; outline: none;
+  transition: border-color .15s;
+}
+.contact-input:focus { border-color: #2d6a3a; }
+.contact-textarea { resize: vertical; min-height: 90px; }
+.contact-submit {
+  background: #1a1a1a; color: #fff; border: none;
+  padding: 11px 24px; border-radius: 40px;
+  font-family: inherit; font-size: 13px; font-weight: 600;
+  cursor: pointer; align-self: flex-start; transition: background .15s;
+}
+.contact-submit:hover { background: #333; }
+.map-placeholder {
+  background: #d5e5d5; border-radius: 10px; height: 220px;
+  display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px;
+  border: 1px solid #c5d5c5;
+}
+.map-placeholder svg { width: 32px; height: 32px; stroke: #2d6a3a; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.map-placeholder span { font-size: 13px; color: #2d6a3a; font-weight: 600; }
+.map-placeholder small { font-size: 11px; color: #888; }
+
+/* ═══════════════════════════════════
+   DIVIDER
+═══════════════════════════════════ */
+.divider { border: none; border-top: 1px solid #e0dedd; margin: 8px 0; }
+
+/* ═══════════════════════════════════
+   ALERTE URGENCE
+═══════════════════════════════════ */
+.alerte {
+  background: #fffbea; border: 1px solid #f0d060;
+  border-radius: 10px; padding: 14px 18px;
+  display: flex; align-items: center; gap: 12px; margin-bottom: 0;
+}
+.alerte svg { width: 20px; height: 20px; stroke: #b58a00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+.alerte-text { font-size: 12.5px; color: #7a5c00; line-height: 1.4; }
+.alerte-text strong { font-weight: 700; color: #5a4200; }
+
+/* ═══════════════════════════════════
+   FOOTER
+═══════════════════════════════════ */
+footer { background: #1a1a1a; color: #fff; padding: 40px 24px 18px; }
+.footer-inner {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px;
+}
+.footer-brand-name { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+.footer-brand-desc { font-size: 12px; color: rgba(255,255,255,.45); line-height: 1.6; margin-bottom: 16px; max-width: 220px; }
+.fnl-form { display: flex; max-width: 260px; }
+.fnl-inp { flex: 1; background: #2c2c2c; border: none; border-bottom: 1px solid #4a4a4a; color: #fff; font-size: 12px; padding: 8px 11px; outline: none; font-family: inherit; }
+.fnl-inp::placeholder { color: #666; }
+.fnl-sub { background: #f0f0f0; color: #111; border: none; font-size: 11.5px; font-weight: 600; padding: 8px 13px; cursor: pointer; white-space: nowrap; font-family: inherit; }
+.fnl-sub:hover { background: #fff; }
+.fnl-soc { display: flex; gap: 13px; margin-top: 14px; }
+.fnl-soc a { color: rgba(255,255,255,.45); display: flex; align-items: center; }
+.fnl-soc a:hover { color: #fff; }
+.fnl-soc svg { width: 16px; height: 16px; fill: currentColor; }
+.footer-col h4 { font-size: 12px; font-weight: 700; margin-bottom: 10px; color: #fff; }
+.footer-col ul { list-style: none; }
+.footer-col li a { font-size: 12px; color: rgba(255,255,255,.45); line-height: 2; display: block; }
+.footer-col li a:hover { color: #fff; }
+.fbottom {
+  max-width: 860px; margin: 24px auto 0;
+  border-top: 1px solid #2c2c2c; padding-top: 14px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 11px; color: rgba(255,255,255,.3);
+}
+.fbottom a { color: rgba(255,255,255,.3); }
+.fbottom a:hover { color: rgba(255,255,255,.6); }
+
+/* ═══════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════ */
+@media (max-width: 700px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .nav-btn { display: none; }
+  .nav-search-btn { display: none; }
+  .services-grid { grid-template-columns: repeat(2,1fr); }
+  .elus-grid { grid-template-columns: repeat(2,1fr); }
+  .urba-grid { grid-template-columns: 1fr; }
+  .asso-grid { grid-template-columns: 1fr 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .pratique-grid { grid-template-columns: 1fr; }
+  .pratique-horaires { grid-column: span 1; }
+  .horaires-grid { grid-template-columns: repeat(3,1fr); }
+  .actu-grid { grid-template-columns: 1fr; }
+  .actu-main { min-height: 200px; }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+  .hero-title { font-size: 52px; }
+  .shortcuts { flex-wrap: wrap; }
+  .sc { width: calc(100%/4); }
+  .ag-row { grid-template-columns: 70px 20px 1fr 0; }
+  .ag-thumb-col { display: none; }
+  .ag-row-double { grid-template-columns: 70px 20px 1fr; }
+  .ag-vsep, .ag-info-r, .ag-thumb-col { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<div class="nav-wrap">
+  <nav class="nav">
+    <a class="nav-logo" href="#">Rochefort-du-Gard</a>
+    <div class="nav-links">
+      <a href="#services" class="active">Services</a>
+      <a href="#actualites">Actualités</a>
+      <a href="#agenda">Agenda</a>
+      <a href="#elus">Élus</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-search-btn" aria-label="Rechercher">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <button class="nav-btn">Mon Espace</button>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</div>
+
+<!-- ══ MENU MOBILE ══ -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="menuClose">✕times;</button>
+  <p class="mm-section-label">Navigation</p>
+  <a href="#services" onclick="closeMenu()">Services en ligne</a>
+  <a href="#actualites" onclick="closeMenu()">Actualités</a>
+  <a href="#agenda" onclick="closeMenu()">Agenda</a>
+  <a href="#pratique" onclick="closeMenu()">Vie pratique</a>
+  <a href="#elus" onclick="closeMenu()">Élus & Conseil</a>
+  <a href="#urbanisme" onclick="closeMenu()">Urbanisme</a>
+  <a href="#associations" onclick="closeMenu()">Associations</a>
+  <a href="#contact" onclick="closeMenu()">Contact & Accès</a>
+  <p class="mm-section-label">Accès rapides</p>
+  <a class="mm-sub" href="#" onclick="closeMenu()">État civil</a>
+  <a class="mm-sub" href="#" onclick="closeMenu()">Permis de construire</a>
+  <a class="mm-sub" href="#" onclick="closeMenu()">Prendre rendez-vous</a>
+  <a class="mm-sub" href="#" onclick="closeMenu()">Plan de la commune</a>
+  <a class="mm-sub" href="#" onclick="closeMenu()">Collecte des déchets</a>
+  <button class="nav-btn-mobile" onclick="closeMenu()">Mon Espace →</button>
+</div>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <img class="hero-img" src="/assets/hero.jpg" alt="Vue de Rochefort-du-Gard" onerror="this.style.display='none'">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">Rochefort<br>du Gard</h1>
+  </div>
+  <div class="hero-scroll">
+    Scroll
+    <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+</section>
+
+<!-- ══ RACCOURCIS ══ -->
+<div class="shortcuts-wrap">
+  <div class="shortcuts">
+    <a class="sc" href="#pratique">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      <span>Droits</span>
+    </a>
+    <a class="sc" href="#services">
+      <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <span>Passeports</span>
+    </a>
+    <a class="sc" href="#pratique">
+      <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <span>Famille</span>
+    </a>
+    <a class="sc" href="#urbanisme">
+      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span>Travaux</span>
+    </a>
+    <a class="sc" href="#services">
+      <svg viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+      <span>Geivects</span>
+    </a>
+    <a class="sc" href="#contact">
+      <svg viewBox="0 0 24 24"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg>
+      <span>Plan</span>
+    </a>
+    <a class="sc" href="#associations">
+      <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      <span>Annuaire</span>
+    </a>
+  </div>
+</div>
+
+<!-- ══ MAIN ══ -->
+<div class="main">
+
+  <!-- ALERTE -->
+  <div style="margin-top:28px;">
+    <div class="alerte">
+      <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <div class="alerte-text">
+        <strong>Restriction d'eau en vigueur</strong> — Arrêté préfectoral du 3 juin 2026. Arrosage des jardins interdit entre 10h et 20h. <a href="#" style="color:#7a5c00;text-decoration:underline">En savoir plus →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ ACTUALITÉS ══ -->
+  <h2 class="section-title" id="actualites">Actualités</h2>
+  <div class="actu-grid">
+    <div class="actu-main">
+      <div class="actu-main-bg"></div>
+      <img class="actu-main-img" src="/assets/broyage.jpg" alt="Broyage" onerror="this.style.display='none'">
+      <div class="actu-main-overlay"></div>
+      <div class="actu-main-body">
+        <div class="actu-tag">{{DATA:IMAGE|IMAGE_2}}</div>
+        <div class="actu-main-title">Broyage à domicile – Opération reconduite en 2026</div>
+        <div class="actu-main-text">Broyage à domicile – Opération reconduite en 2026. Broyage à domicile des cattimus amuche à laoner captsu oivent doin plus excolutos, high contrast.</div>
+      </div>
+    </div>
+    <div class="actu-card">
+      <div class="actu-card-thumb g"><img src="/assets/expo.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:4px;" onerror="this.style.display='none'">{{DATA:IMAGE|IMAGE_2}}</div>
+      <div class="actu-card-body">
+        <div class="actu-card-tag">{{DATA:IMAGE|IMAGE_2}}</div>
+        <div class="actu-card-title">Exposition : Regards croisés</div>
+        <div class="actu-card-text">Exposition : Regards croisés taus contraïnas simes nsiniomment eos iia ootse…</div>
+      </div>
+    </div>
+    <div class="actu-card">
+      <div class="actu-card-thumb b"><img src="/assets/sport.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:4px;" onerror="this.style.display='none'">{{DATA:IMAGE|IMAGE_3}}</div>
+      <div class="actu-card-body">
+        <div class="actu-card-tag">{{DATA:IMAGE|IMAGE_3}}</div>
+        <div class="actu-card-title">Nouveau : Pass Sport</div>
+        <div class="actu-card-text">Nouveau : Pass Sport is sietad avec ttien-occors Im áriners otes more information…</div>
+      </div>
+    </div>
+  </div>
+  <a class="see-all" href="#">Toutes les actualités <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+
+  <!-- ══ AGENDA ══ -->
+  <div class="agenda-section" id="agenda">
+    <h2 class="agenda-head">Agenda</h2>
+    <hr class="agenda-hr">
+    <div class="ag-row">
+      <div class="ag-date"><span class="ag-daynum">12</span><span class="ag-month">&nbsp;</span></div>
+      <div class="ag-dot-col"><div class="ag-dot"></div></div>
+      <div class="ag-info">
+        <div class="ag-cat">Categorie</div>
+        <div class="ag-title">Cabinet de curiosité</div>
+        <div class="ag-detail">Les plats avex. ar-nacc lecture<br>maren-arcia…</div>
+        <a class="ag-link" href="#">Vilaneltater &gt;</a>
+      </div>
+      <div class="ag-thumb-col"><div class="ag-thumb village">{{DATA:IMAGE|IMAGE_2}}</div></div>
+    </div>
+    <div class="ag-row-double">
+      <div class="ag-date"><span class="ag-daynum">15</span><span class="ag-month">&nbsp;</span></div>
+      <div class="ag-dot-col"><div class="ag-dot"></div></div>
+      <div class="ag-info">
+        <div class="ag-cat">Categorie</div>
+        <div class="ag-title">Séance lecture</div>
+        <div class="ag-detail">L'do'ogue</div>
+      </div>
+      <div class="ag-vsep"></div>
+      <div class="ag-info-r">
+        <div class="ag-date-r"><span class="ag-daynum-r">15</span><span class="ag-month-r">JUIN</span></div>
+        <div class="ag-cat">Categorie</div>
+        <div class="ag-title">Fête de la curiosité</div>
+        <div class="ag-detail">Desc ummew de 2026<br>13h – 12 Juin</div>
+      </div>
+      <div class="ag-thumb-col"><div class="ag-thumb green">{{DATA:IMAGE|IMAGE_2}}</div></div>
+    </div>
+    <div class="ag-row">
+      <div class="ag-date"><span class="ag-daynum">21</span><span class="ag-month">JUIN</span></div>
+      <div class="ag-dot-col"><div class="ag-dot"></div></div>
+      <div class="ag-info">
+        <div class="ag-cat">Categorie</div>
+        <div class="ag-title">Fête de la Musique</div>
+        <div class="ag-detail">Luntonite en 2026<br>12h – 12 Juin</div>
+      </div>
+      <div class="ag-thumb-col"><div class="ag-thumb orange">{{DATA:IMAGE|IMAGE_3}}</div></div>
+    </div>
+  </div>
+  <a class="see-all" href="#">Tout l'agenda <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+
+  <!-- ══ SERVICES EN LIGNE ══ -->
+  <h2 class="section-title" id="services">Services en ligne</h2>
+  <p class="section-subtitle">Effectuez vos démarches administratives sans vous déplacer</p>
+  <div class="services-grid">
+    <a class="service-card" href="#">
+      <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      <div class="service-card-title">État civil</div>
+      <div class="service-card-sub">Actes de naissance, mariage, décès</div>
+    </a>
+    <a class="service-card" href="#">
+      <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+      <div class="service-card-title">Passeport & CNI</div>
+      <div class="service-card-sub">Prise de rendez-vous en ligne</div>
+    </a>
+    <a class="service-card" href="#">
+      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <div class="service-card-title">Urbanisme</div>
+      <div class="service-card-sub">Permis de construire, déclarations</div>
+    </a>
+    <a class="service-card" href="#">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <div class="service-card-title">Rendez-vous</div>
+      <div class="service-card-sub">Réserver un créneau en mairie</div>
+    </a>
+    <a class="service-card" href="#">
+      <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <div class="service-card-title">Inscriptions scolaires</div>
+      <div class="service-card-sub">École primaire & maternelle</div>
+    </a>
+    <a class="service-card" href="#">
+      <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      <div class="service-card-title">Listes électorales</div>
+      <div class="service-card-sub">Inscription & vérification</div>
+    </a>
+    <a class="service-card" href="#">
+      <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      <div class="service-card-title">Signalement</div>
+      <div class="service-card-sub">Voirie, éclairage, propreté</div>
+    </a>
+    <a class="service-card" href="#">
+      <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      <div class="service-card-title">Autres démarches</div>
+      <div class="service-card-sub">Toutes nos démarches en ligne</div>
+    </a>
+  </div>
+
+  <!-- ══ VIE PRATIQUE ══ -->
+  <h2 class="section-title" id="pratique">Vie pratique</h2>
+  <div class="pratique-grid">
+    <div class="pratique-card">
+      <div class="pratique-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+      <div>
+        <div class="pratique-card-title">Mairie — Accueil</div>
+        <div class="pratique-card-text">Place de la Mairie, 30650 Rochefort-du-Gard<br>Tél. 04 66 33 00 00</div>
+      </div>
+    </div>
+    <div class="pratique-card">
+      <div class="pratique-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.4 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.6a16 16 0 0 0 6 6l.72-.72a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.28 18z"/></svg></div>
+      <div>
+        <div class="pratique-card-title">Numéros utiles</div>
+        <div class="pratique-card-text">Urgences : 15 / 17 / 18<br>Police municipale : 04 66 33 01 01</div>
+      </div>
+    </div>
+    <div class="pratique-card">
+      <div class="pratique-icon"><svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div>
+      <div>
+        <div class="pratique-card-title">Collecte des déchets</div>
+        <div class="pratique-card-text">Ordures ménagères : lundi & jeudi<br>Tri sélectif : mercredi</div>
+      </div>
+    </div>
+    <div class="pratique-card">
+      <div class="pratique-icon"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+      <div>
+        <div class="pratique-card-title">Eau & assainissement</div>
+        <div class="pratique-card-text">Coupures programmées & urgences réseau<br>Tél. 04 66 33 02 02</div>
+      </div>
+    </div>
+    <div class="pratique-horaires">
+      <h3>Horaires d'ouverture de la mairie</h3>
+      <div class="horaires-grid">
+        <div class="horaire-jour">
+          <div class="horaire-jour-label">Lun.</div>
+          <div class="horaire-jour-hours">8h30<br>12h00<br>14h00<br>17h30</div>
+        </div>
+        <div class="horaire-jour">
+          <div class="horaire-jour-label">Mar.</div>
+          <div class="horaire-jour-hours">8h30<br>12h00<br>14h00<br>17h30</div>
+        </div>
+        <div class="horaire-jour">
+          <div class="horaire-jour-label">Mer.</div>
+          <div class="horaire-jour-hours">8h30<br>12h00<br>—</div>
+        </div>
+        <div class="horaire-jour">
+          <div class="horaire-jour-label">Jeu.</div>
+          <div class="horaire-jour-hours">8h30<br>12h00<br>14h00<br>17h30</div>
+        </div>
+        <div class="horaire-jour">
+          <div class="horaire-jour-label">Ven.</div>
+          <div class="horaire-jour-hours">8h30<br>12h00<br>14h00<br>17h00</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ ÉLUS & CONSEIL ══ -->
+  <h2 class="section-title" id="elus">Élus & Conseil municipal</h2>
+  <p class="section-subtitle">Mandat 2020–2026</p>
+  <div class="elus-grid">
+    <div class="elu-card">
+      <div class="elu-photo"><img src="/assets/maire.jpg" alt="Maire" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='flex';this.parentElement.innerHTML='~'"></div>
+      <div class="elu-body">
+        <div class="elu-name">Jean-Pierre Martin</div>
+        <div class="elu-role">Maire</div>
+      </div>
+    </div>
+    <div class="elu-card">
+      <div class="elu-photo" style="background:#dde8e0;display:flex;align-items:center;justify-content:center;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+      <div class="elu-body">
+        <div class="elu-name">Marie Dupont</div>
+        <div class="elu-role">1ère Adjointe — Urbanisme</div>
+      </div>
+    </div>
+    <div class="elu-card">
+      <div class="elu-photo" style="background:#e0dde8;display:flex;align-items:center;justify-content:center;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+      <div class="elu-body">
+        <div class="elu-name">Pierre Leroy</div>
+        <div class="elu-role">2ème Adjoint — Finances</div>
+      </div>
+    </div>
+    <div class="elu-card">
+      <div class="elu-photo" style="background:#e8e0dd;display:flex;align-items:center;justify-content:center;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+      <div class="elu-body">
+        <div class="elu-name">Sophie Bernard</div>
+        <div class="elu-role">3ème Adjointe — Culture</div>
+      </div>
+    </div>
+  </div>
+  <a class="see-all" href="#">Voir tous les élus <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+
+  <!-- ══ URBANISME ══ -->
+  <h2 class="section-title" id="urbanisme">Urbanisme & Travaux</h2>
+  <div class="urba-grid">
+    <div class="urba-card">
+      <span class="urba-badge actif">En cours</span>
+      <div class="urba-title">Réfection de la rue du Mistral</div>
+      <div class="urba-text">Travaux de voirie prévus du 10 au 28 juin. Circulation alternée. Accès riverains maintenu.</div>
+      <div class="urba-date">Mis à jour le 5 juin 2026</div>
+    </div>
+    <div class="urba-card">
+      <span class="urba-badge info">Information</span>
+      <div class="urba-title">PLU — Plan Local d'Urbanisme</div>
+      <div class="urba-text">Consultez les règles d'urbanisme applicables sur le territoire de la commune.</div>
+      <div class="urba-date">Approuvé le 14 mars 2024</div>
+    </div>
+    <div class="urba-card">
+      <span class="urba-badge doc">Document</span>
+      <div class="urba-title">Permis de construire</div>
+      <div class="urba-text">Déposez votre demande de permis de construire ou de déclaration préalable en ligne.</div>
+      <div class="urba-date">Traitement sous 2 mois</div>
+    </div>
+    <div class="urba-card">
+      <span class="urba-badge actif">En cours</span>
+      <div class="urba-title">Nouveau city-stade</div>
+      <div class="urba-text">Construction d'un espace multisport au quartier des Pins. Livraison prévue septembre 2026.</div>
+      <div class="urba-date">Avancement : 60%</div>
+    </div>
+    <div class="urba-card">
+      <span class="urba-badge info">Information</span>
+      <div class="urba-title">Assainissement collectif</div>
+      <div class="urba-text">Raccordement obligatoire au réseau public. Diagnostic préalable à effectuer sous 2 ans.</div>
+      <div class="urba-date">Délai : avant le 31/12/2027</div>
+    </div>
+    <div class="urba-card">
+      <span class="urba-badge doc">Document</span>
+      <div class="urba-title">Carte des risques naturels</div>
+      <div class="urba-text">Plan de prévention des risques inondation et incendie de forêt. Consultation en mairie.</div>
+      <div class="urba-date">Version 2025</div>
+    </div>
+  </div>
+
+  <!-- ══ ASSOCIATIONS ══ -->
+  <h2 class="section-title" id="associations">Associations</h2>
+  <p class="section-subtitle">La vie associative de Rochefort-du-Gard</p>
+  <div class="asso-grid">
+    <div class="asso-card">
+      <div class="asso-icon sport"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2d6a3a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M4.93 4.93l14.14 14.14"/><path d="M9 3.5C9 3.5 8 8 10 12s6 7.5 6 7.5"/><path d="M15 3.5S16 8 14 12s-6 7.5-6 7.5"/></svg></div>
+      <div>
+        <div class="asso-name">Football Club Rochefortais</div>
+        <div class="asso-type">Sport — Tous âges</div>
+      </div>
+    </div>
+    <div class="asso-card">
+      <div class="asso-icon culture"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c2185b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+      <div>
+        <div class="asso-name">Les Amis du Patrimoine</div>
+        <div class="asso-type">Culture & Histoire</div>
+      </div>
+    </div>
+    <div class="asso-card">
+      <div class="asso-icon nature"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00796b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8C8 10 5.9 16.17 3.82 19c2.22-4 5.55-6 10.18-7"/><path d="M21 3a14.8 14.8 0 0 1-3.17 9.26A14.8 14.8 0 0 1 9 17"/><line x1="12" y1="22" x2="12" y2="17"/></svg></div>
+      <div>
+        <div class="asso-name">Jardiniers du Gard</div>
+        <div class="asso-type">Jardinage & Environnement</div>
+      </div>
+    </div>
+    <div class="asso-card">
+      <div class="asso-icon senior"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e65100" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div>
+        <div class="asso-name">Club de l'Amitié</div>
+        <div class="asso-type">Seniors — Loisirs</div>
+      </div>
+    </div>
+    <div class="asso-card">
+      <div class="asso-icon youth"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6a1b9a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+      <div>
+        <div class="asso-name">Atelier Jeunes Artistes</div>
+        <div class="asso-type">Jeunesse — Création</div>
+      </div>
+    </div>
+    <div class="asso-card">
+      <div class="asso-icon music"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1565c0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+      <div>
+        <div class="asso-name">Harmonie Communale</div>
+        <div class="asso-type">Musique — Fanfare</div>
+      </div>
+    </div>
+  </div>
+  <a class="see-all" href="#">Toutes les associations <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+
+  <!-- ══ CONTACT & ACCÈS ══ -->
+  <h2 class="section-title" id="contact">Contact & Accès</h2>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <h3>Mairie de Rochefort-du-Gard</h3>
+      <div class="contact-row">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div class="contact-row-text">
+          <strong>Adresse</strong>
+          Place de la Mairie<br>30650 Rochefort-du-Gard
+        </div>
+      </div>
+      <div class="contact-row">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.4 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.6a16 16 0 0 0 6 6l.72-.72a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.28 18z"/></svg>
+        <div class="contact-row-text">
+          <strong>Téléphone</strong>
+          04 66 33 00 00
+        </div>
+      </div>
+      <div class="contact-row">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <div class="contact-row-text">
+          <strong>Email</strong>
+          mairie@rochefort-du-gard.fr
+        </div>
+      </div>
+      <div style="margin-top:16px;">
+        <div class="map-placeholder">
+          <svg viewBox="0 0 24 24"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg>
+          <span>Voir sur la carte</span>
+          <small>Place de la Mairie, 30650</small>
+        </div>
+      </div>
+    </div>
+    <div class="contact-card">
+      <h3>Nous écrire</h3>
+      <div class="contact-form">
+        <input class="contact-input" type="text" placeholder="Votre nom">
+        <input class="contact-input" type="email" placeholder="Votre email">
+        <input class="contact-input" type="text" placeholder="Objet">
+        <textarea class="contact-input contact-textarea" placeholder="Votre message…"></textarea>
+        <button class="contact-submit">Envoyer le message</button>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand-name">Rochefort-du-Gard</div>
+      <div class="footer-brand-desc">Mairie de Rochefort-du-Gard — Commune du Gard, Région Occitanie. Au service des habitants depuis 1790.</div>
+      <div class="fnl-form">
+        <input class="fnl-inp" type="email" placeholder="Email">
+        <button class="fnl-sub">S'inscrire</button>
+      </div>
+      <div class="fnl-soc">
+        <a href="#" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+        <a href="#" title="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <a href="#" title="Twitter/X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>La commune</h4>
+      <ul>
+        <li><a href="#elus">Élus & conseil</a></li>
+        <li><a href="#">Comptes-rendus</a></li>
+        <li><a href="#">Marchés publics</a></li>
+        <li><a href="#">Budget & finances</a></li>
+        <li><a href="#">Histoire</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Démarches en ligne</a></li>
+        <li><a href="#pratique">Horaires mairie</a></li>
+        <li><a href="#urbanisme">Urbanisme</a></li>
+        <li><a href="#associations">Associations</a></li>
+        <li><a href="#">Médiathèque</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Informations</h4>
+      <ul>
+        <li><a href="#">Mentions légales</a></li>
+        <li><a href="#">Accessibilité</a></li>
+        <li><a href="#">RGPD</a></li>
+        <li><a href="#">Plan du site</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="fbottom">
+    <span>© 2026 Mairie de Rochefort-du-Gard — Tous droits réservés</span>
+    <span><a href="#">Mentions légales</a> · <a href="#">RGPD</a></span>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const menuClose = document.getElementById('menuClose');
+
+  function openMenu() {
+    mobileMenu.classList.add('open');
+    hamburger.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    mobileMenu.classList.remove('open');
+    hamburger.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.contains('open') ? closeMenu() : openMenu();
+  });
+  menuClose.addEventListener('click', closeMenu);
+
+  // Fermer avec Escape
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+</script>
+
+</body>
+</html>
