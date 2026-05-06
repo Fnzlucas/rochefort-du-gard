@@ -166,20 +166,27 @@ img { display: block; max-width: 100%; }
   pointer-events: none;
 }
 .hero-title-line1 {
-  font-size: clamp(32px, 4vw, 52px);
-  font-weight: 900;
+  font-size: clamp(28px, 3.5vw, 48px);
+  font-weight: 800;
   color: #fff;
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: -0.02em;
-  text-shadow: 0 2px 20px rgba(0,0,0,0.25);
+  text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  margin-bottom: 14px;
+  display: block;
 }
-.hero-title-line2 {
-  font-size: clamp(32px, 4vw, 52px);
-  font-weight: 900;
+.hero-title-sub {
+  display: block;
+  font-size: clamp(13px, 1.4vw, 16px);
+  font-weight: 400;
   color: #fff;
-  text-transform: uppercase;
-  letter-spacing: -0.02em;
-  text-shadow: 0 2px 20px rgba(0,0,0,0.25);
+  line-height: 1.6;
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(6px);
+  padding: 14px 20px;
+  border-left: 3px solid rgba(255,255,255,0.6);
+  max-width: 480px;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.3);
 }
 .hero-scroll {
   position: absolute; bottom: 0; left: 50%;
@@ -615,8 +622,8 @@ footer { background: #1a1a1a; color: #fff; padding: 40px 40px 18px; }
   <img class="hero-img" src="/assets/hero.jpg" alt="Vue de Rochefort-du-Gard" onerror="this.style.display='none'">
   <div class="hero-overlay"></div>
   <div class="hero-title-overlay">
-    <span class="hero-title-line1">ROCHEFORT</span>
-    <span class="hero-title-line2">DU GARD</span>
+    <span class="hero-title-line1">Bienvenue à Rochefort-du-Gard</span>
+    <span class="hero-title-sub">Bienvenue sur le site internet de la commune de Rochefort-du-Gard.<br>Vous trouverez ici une mine d'informations pour bien vivre votre commune.</span>
   </div>
   <div class="hero-scroll">
     Scroll
