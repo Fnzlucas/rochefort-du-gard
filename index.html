@@ -147,13 +147,13 @@ img { display: block; max-width: 100%; }
 }
 .hero-content {
   position: relative; z-index: 3;
-  text-align: center; margin-top: 32px;
+  text-align: left; margin-top: 0; padding: 0 40px; width: 100%; max-width: 1200px;
 }
 .hero-title {
-  font-size: clamp(36px,5vw,64px);
-  font-weight: 800; color: #fff; text-transform: uppercase;
-  line-height: .92; letter-spacing: -0.02em;
-  text-shadow: 0 2px 30px rgba(0,0,0,0.32),0 1px 6px rgba(0,0,0,0.22);
+  font-size: clamp(22px,2.4vw,34px);
+  font-weight: 600; color: #fff; text-transform: none;
+  line-height: 1.2; letter-spacing: -0.01em;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.4);
 }
 .hero-scroll {
   position: absolute; bottom: 0; left: 50%;
@@ -558,9 +558,6 @@ footer { background: #1a1a1a; color: #fff; padding: 40px 40px 18px; }
 <section class="hero">
   <img class="hero-img" src="/assets/hero.jpg" alt="Vue de Rochefort-du-Gard" onerror="this.style.display='none'">
   <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <h1 class="hero-title">Rochefort<br>du Gard</h1>
-  </div>
   <div class="hero-scroll">
     Scroll
     <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
