@@ -529,6 +529,74 @@ img { display: block; max-width: 100%; }
 .alerte-text { font-size: 14px; color: #7a5c00; line-height: 1.5; }
 .alerte-text strong { font-weight: 700; color: #5a4200; }
 
+
+/* ═══════════════════════════════════
+   SECTIONS FOND BLEU
+═══════════════════════════════════ */
+.section-blue {
+  background: #1a4fa8;
+  margin: 60px -40px 0;
+  padding: 56px 40px;
+}
+.section-blue .section-title {
+  color: #fff;
+  margin-top: 0;
+}
+.section-blue .section-title::before {
+  background: rgba(255,255,255,0.5);
+}
+.section-blue .section-subtitle {
+  color: rgba(255,255,255,0.7);
+}
+.section-blue .service-card {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.15);
+  box-shadow: none;
+  backdrop-filter: blur(8px);
+}
+.section-blue .service-card:hover {
+  background: rgba(255,255,255,0.2);
+  border-color: rgba(255,255,255,0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+}
+.section-blue .service-card svg { stroke: #fff; }
+.section-blue .service-card-title { color: #fff; }
+.section-blue .service-card-sub { color: rgba(255,255,255,0.65); }
+.section-blue .see-all {
+  color: #fff;
+  border-color: rgba(255,255,255,0.5);
+}
+.section-blue .see-all:hover {
+  background: #fff;
+  color: #1a4fa8;
+}
+
+.section-dark {
+  background: #0f1f35;
+  margin: 60px -40px 0;
+  padding: 56px 40px;
+}
+.section-dark .agenda-head { color: #fff; }
+.section-dark .agenda-head::before { background: #4a9eff; }
+.section-dark .agenda-hr { border-color: rgba(255,255,255,0.1); }
+.section-dark .ag-row { border-color: rgba(255,255,255,0.08); }
+.section-dark .ag-row:hover { background: rgba(255,255,255,0.04); }
+.section-dark .ag-title { color: #fff; }
+.section-dark .ag-cat { color: rgba(255,255,255,0.4); }
+.section-dark .ag-detail { color: rgba(255,255,255,0.55); }
+.section-dark .ag-link { color: #4a9eff; }
+.section-dark .ag-date { background: #4a9eff; box-shadow: 0 4px 12px rgba(74,158,255,0.3); }
+.section-dark .see-all { color: #4a9eff; border-color: #4a9eff; }
+.section-dark .see-all:hover { background: #4a9eff; color: #fff; }
+
+.section-mid {
+  background: #e8f0fb;
+  margin: 60px -40px 0;
+  padding: 56px 40px;
+}
+.section-mid .section-title::before { background: #1a4fa8; }
+
 /* ═══════════════════════════════════
    FOOTER
 ═══════════════════════════════════ */
@@ -725,9 +793,11 @@ footer { background: #1a1a1a; color: #fff; padding: 40px 40px 18px; }
       </div>
     </div>
   </div>
+  </div><!-- /section-blue -->
   <a class="see-all" href="#">Toutes les actualités <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
 
   <!-- ══ AGENDA ══ -->
+  <div class="section-dark">
   <div class="agenda-section" id="agenda">
     <h2 class="agenda-head">Agenda</h2>
     <hr class="agenda-hr">
@@ -770,10 +840,13 @@ footer { background: #1a1a1a; color: #fff; padding: 40px 40px 18px; }
     </div>
   </div>
   <a class="see-all" href="#">Tout l'agenda <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+  </div><!-- /agenda-section -->
+  </div><!-- /section-dark -->
 
   <!-- ══ SERVICES EN LIGNE ══ -->
+  <div class="section-blue">
   <h2 class="section-title" id="services">Services en ligne</h2>
-  <p class="section-subtitle">Effectuez vos démarches administratives sans vous déplacer</p>
+  <p class="section-subtitle" style="color:rgba(255,255,255,0.7)">Effectuez vos démarches administratives sans vous déplacer</p>
   <div class="services-grid">
     <a class="service-card" href="#">
       <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
@@ -816,6 +889,8 @@ footer { background: #1a1a1a; color: #fff; padding: 40px 40px 18px; }
       <div class="service-card-sub">Toutes nos démarches en ligne</div>
     </a>
   </div>
+
+  </div><!-- /section-blue -->
 
   <!-- ══ VIE PRATIQUE ══ -->
   <h2 class="section-title" id="pratique">Vie pratique</h2>
@@ -875,6 +950,7 @@ footer { background: #1a1a1a; color: #fff; padding: 40px 40px 18px; }
     </div>
   </div>
 
+  <div class="section-mid">
   <!-- ══ ÉLUS & CONSEIL ══ -->
   <h2 class="section-title" id="elus">Élus & Conseil municipal</h2>
   <p class="section-subtitle">Mandat 2020–2026</p>
@@ -909,6 +985,8 @@ footer { background: #1a1a1a; color: #fff; padding: 40px 40px 18px; }
     </div>
   </div>
   <a class="see-all" href="#">Voir tous les élus <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+
+  </div><!-- /section-mid -->
 
   <!-- ══ URBANISME ══ -->
   <h2 class="section-title" id="urbanisme">Urbanisme & Travaux</h2>
