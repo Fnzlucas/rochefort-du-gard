@@ -155,6 +155,32 @@ img { display: block; max-width: 100%; }
   line-height: 1.2; letter-spacing: -0.01em;
   text-shadow: 0 1px 8px rgba(0,0,0,0.4);
 }
+.hero-title-overlay {
+  position: absolute;
+  bottom: 60px;
+  left: 40px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  line-height: 0.88;
+  pointer-events: none;
+}
+.hero-title-line1 {
+  font-size: clamp(42px, 6vw, 76px);
+  font-weight: 900;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.25);
+}
+.hero-title-line2 {
+  font-size: clamp(42px, 6vw, 76px);
+  font-weight: 900;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.25);
+}
 .hero-scroll {
   position: absolute; bottom: 0; left: 50%;
   transform: translateX(-50%);
@@ -558,6 +584,10 @@ footer { background: #1a1a1a; color: #fff; padding: 40px 40px 18px; }
 <section class="hero">
   <img class="hero-img" src="/assets/hero.jpg" alt="Vue de Rochefort-du-Gard" onerror="this.style.display='none'">
   <div class="hero-overlay"></div>
+  <div class="hero-title-overlay">
+    <span class="hero-title-line1">ROCHEFORT</span>
+    <span class="hero-title-line2">DU GARD</span>
+  </div>
   <div class="hero-scroll">
     Scroll
     <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
