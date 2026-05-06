@@ -15,9 +15,9 @@ body {
   color: #111;
   font-size: 14px;
   line-height: 1.5;
-  --accent: #1a6b3c;
-  --accent-light: #e8f5ee;
-  --accent-mid: #2d8a52;
+  --accent: #1a4fa8;
+  --accent-light: #e8f0fb;
+  --accent-mid: #2d63c8;
 }
 a { text-decoration: none; color: inherit; }
 img { display: block; max-width: 100%; }
@@ -189,7 +189,7 @@ img { display: block; max-width: 100%; }
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   padding: 16px 22px;
-  border-left: 3px solid var(--accent-mid);
+  border-left: 3px solid #4a9eff;
   border-radius: 0 8px 8px 0;
   max-width: 460px;
   text-shadow: none;
@@ -337,7 +337,7 @@ img { display: block; max-width: 100%; }
   height: 68px;
   flex-shrink: 0;
   text-align: center;
-  box-shadow: 0 4px 12px rgba(26,107,60,0.25);
+  box-shadow: 0 4px 12px rgba(26,79,168,0.25);
 }
 .ag-daynum { font-size: 28px; font-weight: 800; color: #fff; line-height: 1; display: block; }
 .ag-month { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: rgba(255,255,255,0.7); display: block; margin-top: 2px; }
@@ -378,7 +378,7 @@ img { display: block; max-width: 100%; }
   padding: 28px 20px; text-align: center; cursor: pointer;
   transition: box-shadow .15s, transform .15s; text-decoration: none;
 }
-.service-card:hover { box-shadow: 0 8px 32px rgba(26,107,60,.12); transform: translateY(-3px); border-color: var(--accent-light); }
+.service-card:hover { box-shadow: 0 8px 32px rgba(26,79,168,.12); transform: translateY(-3px); border-color: var(--accent-light); }
 .service-card svg { width: 38px; height: 38px; stroke: var(--accent); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; margin: 0 auto 12px; }
 .service-card-title { font-size: 14px; font-weight: 700; color: #111; line-height: 1.3; }
 .service-card-sub { font-size: 12px; color: #888; margin-top: 6px; line-height: 1.3; }
@@ -397,7 +397,7 @@ img { display: block; max-width: 100%; }
   width: 52px; height: 52px; border-radius: 12px;
   background: var(--accent-light); display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
-.pratique-icon svg { width: 26px; height: 26px; stroke: #2d6a3a; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.pratique-icon svg { width: 26px; height: 26px; stroke: #1a4fa8; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 .pratique-card-title { font-size: 15px; font-weight: 700; color: #111; margin-bottom: 6px; }
 .pratique-card-text { font-size: 13px; color: #666; line-height: 1.5; }
 .pratique-horaires {
@@ -466,7 +466,7 @@ img { display: block; max-width: 100%; }
   width: 54px; height: 54px; border-radius: 12px; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center; font-size: 24px;
 }
-.asso-icon.sport  { background: #e8f5e9; }
+.asso-icon.sport  { background: #e8f0fb; }
 .asso-icon.culture{ background: #fce4ec; }
 .asso-icon.nature { background: #e0f2f1; }
 .asso-icon.senior { background: #fff3e0; }
@@ -484,7 +484,7 @@ img { display: block; max-width: 100%; }
 }
 .contact-card h3 { font-size: 17px; font-weight: 700; color: #111; margin-bottom: 18px; }
 .contact-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; }
-.contact-row svg { width: 17px; height: 17px; stroke: #2d6a3a; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; margin-top: 1px; }
+.contact-row svg { width: 17px; height: 17px; stroke: #1a4fa8; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; margin-top: 1px; }
 .contact-row-text { font-size: 14px; color: #444; line-height: 1.6; }
 .contact-row-text strong { color: #111; font-weight: 600; display: block; }
 .contact-form { display: flex; flex-direction: column; gap: 10px; }
@@ -493,7 +493,7 @@ img { display: block; max-width: 100%; }
   padding: 10px 14px; font-family: inherit; font-size: 13px; color: #111; outline: none;
   transition: border-color .15s;
 }
-.contact-input:focus { border-color: #2d6a3a; }
+.contact-input:focus { border-color: #1a4fa8; }
 .contact-textarea { resize: vertical; min-height: 90px; }
 .contact-submit {
   background: var(--accent); color: #fff; border: none;
@@ -505,10 +505,10 @@ img { display: block; max-width: 100%; }
 .map-placeholder {
   background: var(--accent-light); border-radius: 12px; height: 220px;
   display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px;
-  border: 1px solid #b8dfc8;
+  border: 1px solid #b8d0f8;
 }
-.map-placeholder svg { width: 32px; height: 32px; stroke: #2d6a3a; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
-.map-placeholder span { font-size: 13px; color: #2d6a3a; font-weight: 600; }
+.map-placeholder svg { width: 32px; height: 32px; stroke: #1a4fa8; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.map-placeholder span { font-size: 13px; color: #1a4fa8; font-weight: 600; }
 .map-placeholder small { font-size: 11px; color: #888; }
 
 /* ═══════════════════════════════════
@@ -956,7 +956,7 @@ footer { background: #1a1a1a; color: #fff; padding: 40px 40px 18px; }
   <p class="section-subtitle">La vie associative de Rochefort-du-Gard</p>
   <div class="asso-grid">
     <div class="asso-card">
-      <div class="asso-icon sport"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2d6a3a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M4.93 4.93l14.14 14.14"/><path d="M9 3.5C9 3.5 8 8 10 12s6 7.5 6 7.5"/><path d="M15 3.5S16 8 14 12s-6 7.5-6 7.5"/></svg></div>
+      <div class="asso-icon sport"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a4fa8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M4.93 4.93l14.14 14.14"/><path d="M9 3.5C9 3.5 8 8 10 12s6 7.5 6 7.5"/><path d="M15 3.5S16 8 14 12s-6 7.5-6 7.5"/></svg></div>
       <div>
         <div class="asso-name">Football Club Rochefortais</div>
         <div class="asso-type">Sport — Tous âges</div>
