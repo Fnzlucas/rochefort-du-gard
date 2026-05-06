@@ -292,38 +292,53 @@ img { display: block; max-width: 100%; }
 .agenda-section { margin-top: 48px; }
 .agenda-hr { border: none; border-top: 1.5px solid #ddd; margin: 14px 0 0; }
 .ag-row {
-  display: grid;
-  grid-template-columns: 90px 24px 1fr 108px;
-  align-items: start;
-  border-bottom: 1px solid #e5e5e5; padding: 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 18px 0;
+  cursor: pointer;
+  transition: background .12s;
 }
-.ag-date { text-align: right; }
-.ag-daynum { font-size: 42px; font-weight: 800; color: #111; line-height: 1; display: block; }
-.ag-month { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #888; display: block; margin-top: 1px; }
-.ag-dot-col { display: flex; justify-content: center; padding-top: 15px; }
-.ag-dot { width: 8px; height: 8px; border-radius: 50%; background: #111; }
-.ag-info { padding-left: 14px; }
-.ag-cat { font-size: 9.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #999; margin-bottom: 4px; }
-.ag-title { font-size: 14px; font-weight: 700; color: #111; line-height: 1.3; margin-bottom: 3px; }
-.ag-detail { font-size: 11.5px; color: #666; line-height: 1.4; }
-.ag-link { display: inline-block; font-size: 11.5px; font-weight: 600; color: #111; margin-top: 7px; }
+.ag-row:hover { background: #fafafa; }
+.ag-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+  color: #fff;
+  border-radius: 8px;
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  text-align: center;
+}
+.ag-daynum { font-size: 20px; font-weight: 800; color: #fff; line-height: 1; display: block; }
+.ag-month { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: rgba(255,255,255,0.7); display: block; margin-top: 1px; }
+.ag-dot-col { display: none; }
+.ag-info { flex: 1; min-width: 0; }
+.ag-cat { font-size: 9.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #999; margin-bottom: 3px; }
+.ag-title { font-size: 14px; font-weight: 700; color: #111; line-height: 1.3; margin-bottom: 2px; }
+.ag-detail { font-size: 12px; color: #666; line-height: 1.4; }
+.ag-link { display: inline-block; font-size: 11.5px; font-weight: 600; color: #111; margin-top: 6px; }
 .ag-link:hover { text-decoration: underline; }
-.ag-thumb-col { display: flex; align-items: flex-start; justify-content: flex-end; padding-top: 2px; }
-.ag-thumb { width: 100px; height: 70px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 8.5px; color: #666; text-align: center; padding: 4px; line-height: 1.3; }
+.ag-thumb-col { display: flex; align-items: center; justify-content: flex-end; flex-shrink: 0; }
+.ag-thumb {
+  width: 80px; height: 60px; border-radius: 8px;
+  overflow: hidden; display: flex; align-items: center; justify-content: center;
+  font-size: 8.5px; color: #666; text-align: center; line-height: 1.3;
+}
+.ag-thumb img { width: 100%; height: 100%; object-fit: cover; }
 .ag-thumb.village { background: #b8ccd8; }
 .ag-thumb.green { background: #b5d5b5; }
 .ag-thumb.orange { background: #d8c8a0; }
-.ag-row-double {
-  display: grid;
-  grid-template-columns: 90px 24px 1fr 1px 1fr 108px;
-  align-items: start;
-  border-bottom: 1px solid #e5e5e5; padding: 20px 0;
-}
-.ag-vsep { background: #e0e0e0; align-self: stretch; margin: 2px 0; }
-.ag-info-r { padding-left: 24px; }
-.ag-date-r { display: flex; align-items: baseline; gap: 6px; margin-bottom: 4px; }
-.ag-daynum-r { font-size: 42px; font-weight: 800; color: #111; line-height: 1; }
-.ag-month-r { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #888; }
+.ag-row-double { display: none; }
+.ag-vsep { display: none; }
+.ag-info-r { display: none; }
+.ag-date-r { display: none; }
+.ag-daynum-r { display: none; }
+.ag-month-r { display: none; }
 
 /* ═══════════════════════════════════
    SERVICES EN LIGNE
@@ -691,42 +706,41 @@ footer { background: #1a1a1a; color: #fff; padding: 40px 40px 18px; }
     <h2 class="agenda-head">Agenda</h2>
     <hr class="agenda-hr">
     <div class="ag-row">
-      <div class="ag-date"><span class="ag-daynum">12</span><span class="ag-month">&nbsp;</span></div>
-      <div class="ag-dot-col"><div class="ag-dot"></div></div>
+      <div class="ag-date"><span class="ag-daynum">12</span><span class="ag-month">Juin</span></div>
       <div class="ag-info">
         <div class="ag-cat">Categorie</div>
         <div class="ag-title">Cabinet de curiosité</div>
-        <div class="ag-detail">Les plats avex. ar-nacc lecture<br>maren-arcia…</div>
+        <div class="ag-detail">Les plats avex. ar-nacc lecture — maren-arcia…</div>
         <a class="ag-link" href="#">Vilaneltater &gt;</a>
       </div>
-      <div class="ag-thumb-col"><div class="ag-thumb village">{{DATA:IMAGE|IMAGE_2}}</div></div>
+      <div class="ag-thumb-col"><div class="ag-thumb village"><img src="/assets/agenda1.jpg" alt="" onerror="this.style.display='none'"></div></div>
     </div>
-    <div class="ag-row-double">
-      <div class="ag-date"><span class="ag-daynum">15</span><span class="ag-month">&nbsp;</span></div>
-      <div class="ag-dot-col"><div class="ag-dot"></div></div>
+    <div class="ag-row">
+      <div class="ag-date"><span class="ag-daynum">15</span><span class="ag-month">Juin</span></div>
       <div class="ag-info">
         <div class="ag-cat">Categorie</div>
         <div class="ag-title">Séance lecture</div>
         <div class="ag-detail">L'do'ogue</div>
       </div>
-      <div class="ag-vsep"></div>
-      <div class="ag-info-r">
-        <div class="ag-date-r"><span class="ag-daynum-r">15</span><span class="ag-month-r">JUIN</span></div>
-        <div class="ag-cat">Categorie</div>
-        <div class="ag-title">Fête de la curiosité</div>
-        <div class="ag-detail">Desc ummew de 2026<br>13h – 12 Juin</div>
-      </div>
-      <div class="ag-thumb-col"><div class="ag-thumb green">{{DATA:IMAGE|IMAGE_2}}</div></div>
+      <div class="ag-thumb-col"><div class="ag-thumb green"></div></div>
     </div>
     <div class="ag-row">
-      <div class="ag-date"><span class="ag-daynum">21</span><span class="ag-month">JUIN</span></div>
-      <div class="ag-dot-col"><div class="ag-dot"></div></div>
+      <div class="ag-date"><span class="ag-daynum">15</span><span class="ag-month">Juin</span></div>
+      <div class="ag-info">
+        <div class="ag-cat">Categorie</div>
+        <div class="ag-title">Fête de la curiosité</div>
+        <div class="ag-detail">Desc ummew de 2026 — 13h – 12 Juin</div>
+      </div>
+      <div class="ag-thumb-col"><div class="ag-thumb green"><img src="/assets/agenda2.jpg" alt="" onerror="this.style.display='none'"></div></div>
+    </div>
+    <div class="ag-row">
+      <div class="ag-date"><span class="ag-daynum">21</span><span class="ag-month">Juin</span></div>
       <div class="ag-info">
         <div class="ag-cat">Categorie</div>
         <div class="ag-title">Fête de la Musique</div>
-        <div class="ag-detail">Luntonite en 2026<br>12h – 12 Juin</div>
+        <div class="ag-detail">Luntonite en 2026 — 12h – 12 Juin</div>
       </div>
-      <div class="ag-thumb-col"><div class="ag-thumb orange">{{DATA:IMAGE|IMAGE_3}}</div></div>
+      <div class="ag-thumb-col"><div class="ag-thumb orange"><img src="/assets/agenda3.jpg" alt="" onerror="this.style.display='none'"></div></div>
     </div>
   </div>
   <a class="see-all" href="#">Tout l'agenda <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
