@@ -261,8 +261,11 @@ img { display: block; max-width: 100%; }
 .actu-card:hover { background: #fafafa; }
 .actu-card-thumb {
   width: 68px; height: 68px; flex-shrink: 0; border-radius: 6px;
-  object-fit: cover; display: flex; align-items: center; justify-content: center;
-  font-size: 8px; color: #666; text-align: center; padding: 4px; line-height: 1.3;
+  overflow: hidden; display: flex; align-items: center; justify-content: center;
+  font-size: 8px; color: #666; text-align: center; line-height: 1.3;
+}
+.actu-card-thumb img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center center;
 }
 .actu-card-thumb.g { background: #b8d8b0; }
 .actu-card-thumb.b { background: #b0c8e0; }
@@ -649,7 +652,7 @@ footer { background: #1a1a1a; color: #fff; padding: 40px 40px 18px; }
       <img class="actu-main-img" src="/assets/broyage.jpg" alt="Broyage" onerror="this.style.display='none'">
       <div class="actu-main-overlay"></div>
       <div class="actu-main-body">
-        <div class="actu-tag">{{2026}}</div>
+        <div class="actu-tag">{{DATA:IMAGE|IMAGE_2}}</div>
         <div class="actu-main-title">Broyage à domicile – Opération reconduite en 2026</div>
         <div class="actu-main-text">Broyage à domicile – Opération reconduite en 2026. Broyage à domicile des cattimus amuche à laoner captsu oivent doin plus excolutos, high contrast.</div>
       </div>
@@ -657,7 +660,7 @@ footer { background: #1a1a1a; color: #fff; padding: 40px 40px 18px; }
     <div class="actu-card">
       <div class="actu-card-thumb g"><img src="/assets/expo.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:4px;" onerror="this.style.display='none'">{{DATA:IMAGE|IMAGE_2}}</div>
       <div class="actu-card-body">
-        <div class="actu-card-tag">{{2026}}</div>
+        <div class="actu-card-tag">{{DATA:IMAGE|IMAGE_2}}</div>
         <div class="actu-card-title">Exposition : Regards croisés</div>
         <div class="actu-card-text">Exposition : Regards croisés taus contraïnas simes nsiniomment eos iia ootse…</div>
       </div>
