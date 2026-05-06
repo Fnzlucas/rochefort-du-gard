@@ -5,19 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rochefort-du-Gard — Mairie</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
   font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
-  background: #f0f0ee;
-  color: #111;
+  background: #f1f3f5;
+  color: #1a1a2e;
   font-size: 14px;
   line-height: 1.5;
-  --accent: #1a4fa8;
+  --accent: #1a5fb4;
   --accent-light: #e8f0fb;
-  --accent-mid: #2d63c8;
+  --accent-mid: #1a4fa8;
+  --gold: #c8a84b;
+  --gold-light: #f5eed8;
+  --gold-mid: #a8883a;
+  --red: #c0392b;
+  --green: #2d7a3a;
+  --dark: #0f1a2e;
+  --text: #1a1a2e;
+  --text-soft: #5a6070;
 }
 a { text-decoration: none; color: inherit; }
 img { display: block; max-width: 100%; }
@@ -34,44 +42,50 @@ img { display: block; max-width: 100%; }
   max-width: 1200px;
 }
 .nav {
-  background: rgba(255,255,255,0.97);
-  backdrop-filter: blur(20px);
+  background: rgba(20, 30, 45, 0.45);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
   border-radius: 16px;
   display: flex;
   align-items: center;
   padding: 0 12px 0 22px;
   height: 52px;
   gap: 0;
-  box-shadow: 0 4px 32px rgba(0,0,0,0.10), 0 1px 0 rgba(255,255,255,0.8);
-  border: 1px solid rgba(255,255,255,0.6);
+  box-shadow: 0 4px 32px rgba(0,0,0,0.20);
+  border: 1px solid rgba(255,255,255,0.15);
 }
 .nav-logo {
-  font-size: 14px; font-weight: 800; color: #111;
+  font-size: 14px; font-weight: 700; color: #fff;
   white-space: nowrap; margin-right: 32px; letter-spacing: -0.02em;
 }
 .nav-links {
   display: flex; gap: 22px; flex: 1; align-items: center;
 }
 .nav-links a {
-  font-size: 12px; color: #444; font-weight: 400; white-space: nowrap;
+  font-size: 13px; color: rgba(255,255,255,0.85); font-weight: 400; white-space: nowrap;
   transition: color .15s;
 }
-.nav-links a.active { font-weight: 700; color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 2px; }
-.nav-links a:hover { color: #111; }
+.nav-links a.active {
+  font-weight: 600; color: #fff;
+  border-bottom: 2px solid #fff;
+  padding-bottom: 2px;
+}
+.nav-links a:hover { color: #fff; }
 .nav-right {
   display: flex; align-items: center; gap: 8px; margin-left: auto;
 }
 .nav-search-btn {
-  background: none; border: none; cursor: pointer; color: #555;
+  background: none; border: none; cursor: pointer; color: rgba(255,255,255,0.85);
   display: flex; align-items: center; padding: 6px;
 }
+.nav-search-btn:hover { color: #fff; }
 .nav-btn {
-  background: var(--accent); color: #fff; border: none;
-  padding: 8px 20px; font-size: 13px; font-weight: 600;
-  cursor: pointer; border-radius: 12px; font-family: inherit;
+  background: #fff; color: #111; border: none;
+  padding: 8px 18px; font-size: 13px; font-weight: 600;
+  cursor: pointer; border-radius: 999px; font-family: inherit;
   white-space: nowrap; transition: background .15s, transform .1s;
 }
-.nav-btn:hover { background: var(--accent-mid); transform: translateY(-1px); }
+.nav-btn:hover { background: #f5f5f5; transform: translateY(-1px); }
 
 /* Hamburger */
 .hamburger {
@@ -80,7 +94,7 @@ img { display: block; max-width: 100%; }
 }
 .hamburger span {
   display: block; width: 20px; height: 2px;
-  background: #111; border-radius: 2px; transition: all .25s;
+  background: #fff; border-radius: 2px; transition: all .25s;
 }
 .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .hamburger.open span:nth-child(2) { opacity: 0; }
@@ -128,94 +142,86 @@ img { display: block; max-width: 100%; }
 /* ═══════════════════════════════════
    HERO
 ═══════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap');
+
 .hero {
   position: relative;
-  height: 520px; overflow: hidden;
+  height: 620px;
+  overflow: hidden;
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
   background: linear-gradient(160deg,#2d4a35 0%,#4a7048 35%,#6a9060 60%,#557a4a 100%);
+  padding-bottom: 80px;
 }
 .hero-img {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
-  object-fit: cover; object-position: center 35%;
+  object-fit: cover; object-position: center 40%;
   z-index: 1;
 }
 .hero-overlay {
   position: absolute; inset: 0; z-index: 2;
   background: linear-gradient(180deg,
-    rgba(10,18,12,0.06) 0%,
-    rgba(10,18,12,0.0) 28%,
-    rgba(10,18,12,0.45) 72%,
-    rgba(10,18,12,0.60) 100%);
+    rgba(10,18,12,0.20) 0%,
+    rgba(10,18,12,0.10) 30%,
+    rgba(10,18,12,0.20) 70%,
+    rgba(10,18,12,0.45) 100%);
 }
 .hero-content {
   position: relative; z-index: 3;
-  text-align: left; margin-top: 0; padding: 0 40px; width: 100%; max-width: 1200px;
+  text-align: center;
+  padding: 0 40px;
+  width: 100%;
+  max-width: 1200px;
 }
 .hero-title {
-  font-size: clamp(22px,2.4vw,34px);
-  font-weight: 600; color: #fff; text-transform: none;
-  line-height: 1.2; letter-spacing: -0.01em;
-  text-shadow: 0 1px 8px rgba(0,0,0,0.4);
-}
-.hero-title-overlay {
-  position: absolute;
-  bottom: 60px;
-  left: 40px;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  line-height: 0.88;
-  pointer-events: none;
-}
-.hero-title-line1 {
-  font-size: clamp(28px, 3.5vw, 48px);
-  font-weight: 800;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(56px, 9vw, 130px);
+  font-weight: 600;
   color: #fff;
-  text-transform: none;
-  letter-spacing: -0.02em;
-  text-shadow: 0 2px 20px rgba(0,0,0,0.4);
-  margin-bottom: 14px;
-  display: block;
+  text-transform: uppercase;
+  line-height: 0.92;
+  letter-spacing: 0.005em;
+  text-shadow: 0 4px 32px rgba(0,0,0,0.35);
+  margin: 0;
 }
-.hero-title-sub {
+.hero-title span {
   display: block;
-  font-size: clamp(13px, 1.3vw, 15px);
-  font-weight: 400;
-  color: rgba(255,255,255,0.92);
-  line-height: 1.65;
-  background: rgba(0,0,0,0.28);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  padding: 16px 22px;
-  border-left: 3px solid #4a9eff;
-  border-radius: 0 8px 8px 0;
-  max-width: 460px;
-  text-shadow: none;
 }
 .hero-scroll {
-  position: absolute; bottom: 0; left: 50%;
+  position: absolute; bottom: 110px; left: 50%;
   transform: translateX(-50%);
   z-index: 3;
   display: flex; flex-direction: column; align-items: center; gap: 4px;
-  color: rgba(255,255,255,0.88); font-size: 11px;
-  letter-spacing: .05em; padding-bottom: 18px;
+  color: rgba(255,255,255,0.95); font-size: 12px;
+  font-weight: 400;
+  letter-spacing: .04em;
 }
 .hero-scroll svg {
-  width: 18px; height: 18px; stroke: rgba(255,255,255,0.88);
+  width: 18px; height: 18px; stroke: rgba(255,255,255,0.95);
   fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
 }
 
 /* ═══════════════════════════════════
-   RACCOURCIS
+   RACCOURCIS — chevauchent le hero
 ═══════════════════════════════════ */
-.shortcuts-wrap { background: #f4f4f4; padding: 0 40px; }
+.shortcuts-wrap {
+  background: transparent;
+  padding: 0 40px;
+  margin-top: -50px;
+  position: relative;
+  z-index: 10;
+  margin-bottom: 28px;
+}
 .shortcuts {
-  display: flex; background: #fff;
-  border: 1px solid #e2e2e0; border-top: none;
-  border-radius: 0 0 14px 14px;
-  max-width: 1200px; margin: 0 auto; overflow: hidden;
+  display: flex;
+  background: #fff;
+  border: none;
+  border-radius: 18px;
+  max-width: 1100px;
+  margin: 0 auto;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.18), 0 4px 12px rgba(0,0,0,0.08);
 }
 .sc {
   flex: 1; display: flex; flex-direction: column;
@@ -232,27 +238,28 @@ img { display: block; max-width: 100%; }
 /* ═══════════════════════════════════
    LAYOUT COMMUN
 ═══════════════════════════════════ */
-.main { max-width: 1200px; margin: 0 auto; padding: 0 40px 0; }
+.main { max-width: 100%; margin: 0; padding: 0; }
+.main-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
 .section-title {
-  font-size: 28px; font-weight: 800; color: #111; margin: 60px 0 24px;
+  font-size: 28px; font-weight: 800; color: #0f1a2e; margin: 60px 0 24px;
   display: flex; align-items: center; gap: 14px;
 }
 .section-title::before {
   content: '';
   display: inline-block;
-  width: 5px; height: 28px;
-  background: var(--accent);
+  width: 5px; height: 30px;
+  background: var(--gold);
   border-radius: 3px;
   flex-shrink: 0;
 }
 .section-subtitle { font-size: 13px; color: #888; margin-top: -10px; margin-bottom: 18px; }
 .see-all {
   display: inline-flex; align-items: center; gap: 6px;
-  font-size: 13px; font-weight: 700; color: var(--accent);
-  border: 2px solid var(--accent); border-radius: 12px;
+  font-size: 13px; font-weight: 700; color: var(--gold-mid);
+  border: 2px solid var(--gold); border-radius: 12px;
   padding: 10px 22px; margin-top: 24px; transition: all .15s;
 }
-.see-all:hover { background: var(--accent); color: #fff; }
+.see-all:hover { background: var(--gold); color: #0f1a2e; }
 
 /* ═══════════════════════════════════
    ACTUALITÉS
@@ -325,22 +332,7 @@ img { display: block; max-width: 100%; }
   transition: background .12s;
 }
 .ag-row:hover { background: #fafafa; }
-.ag-date {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: var(--accent);
-  color: #fff;
-  border-radius: 12px;
-  width: 68px;
-  height: 68px;
-  flex-shrink: 0;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(26,79,168,0.25);
-}
-.ag-daynum { font-size: 28px; font-weight: 800; color: #fff; line-height: 1; display: block; }
-.ag-month { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: rgba(255,255,255,0.7); display: block; margin-top: 2px; }
+/* .ag-date legacy supprimé — voir nouveau CSS Agenda */
 .ag-dot-col { display: none; }
 .ag-info { flex: 1; min-width: 0; }
 .ag-cat { font-size: 9.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #999; margin-bottom: 3px; }
@@ -535,8 +527,17 @@ img { display: block; max-width: 100%; }
 ═══════════════════════════════════ */
 .section-blue {
   background: #1a4fa8;
-  margin: 60px -40px 0;
-  padding: 56px 40px;
+  margin: 60px 0 0;
+  padding: 64px 24px;
+  border-radius: 0;
+  position: relative;
+}
+.section-blue-inner .services-grid, .section-blue .section-title, .section-blue .section-subtitle, .section-blue p, .section-blue .see-all {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 .section-blue .section-title {
   color: #fff;
@@ -571,11 +572,34 @@ img { display: block; max-width: 100%; }
   background: #fff;
   color: #1a4fa8;
 }
+/* Élus sur fond bleu */
+.section-blue .elu-card {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.15);
+  box-shadow: none;
+  backdrop-filter: blur(8px);
+}
+.section-blue .elu-card:hover {
+  background: rgba(255,255,255,0.2);
+  border-color: rgba(255,255,255,0.3);
+  box-shadow: 0 16px 36px rgba(0,0,0,0.2);
+}
+.section-blue .elu-name { color: #fff; }
+.section-blue .elu-role { color: rgba(255,255,255,0.7); }
 
 .section-dark {
-  background: #0f1f35;
-  margin: 60px -40px 0;
-  padding: 56px 40px;
+  background: var(--dark);
+  margin: 60px 0 0;
+  padding: 64px 24px;
+  border-radius: 0;
+  position: relative;
+}
+.section-dark-inner .agenda-section, .section-dark .agenda-head, .section-dark .see-all {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 .section-dark .agenda-head { color: #fff; }
 .section-dark .agenda-head::before { background: #4a9eff; }
@@ -586,14 +610,78 @@ img { display: block; max-width: 100%; }
 .section-dark .ag-cat { color: rgba(255,255,255,0.4); }
 .section-dark .ag-detail { color: rgba(255,255,255,0.55); }
 .section-dark .ag-link { color: #4a9eff; }
-.section-dark .ag-date { background: #4a9eff; box-shadow: 0 4px 12px rgba(74,158,255,0.3); }
+
 .section-dark .see-all { color: #4a9eff; border-color: #4a9eff; }
 .section-dark .see-all:hover { background: #4a9eff; color: #fff; }
 
+/* Section élus fond blanc */
+.elus-wrap .section-title { color: #0f1f35; }
+.elus-wrap .section-title::before { background: #1a4fa8; }
+.elus-wrap .elu-card { background: #f4f7fb; border: 1.5px solid #e8edf4; }
+.elus-wrap .elu-card:hover { background: #eaf0fa; border-color: #1a4fa8; }
+.elus-wrap .elu-name { color: #0f1f35; }
+.elus-wrap .elu-role { color: #5a6a7a; }
+.elus-wrap .see-all { color: #1a4fa8; border-color: #1a4fa8; }
+.elus-wrap .see-all:hover { background: #1a4fa8; color: #fff; }
+
+/* Section agenda fond blanc */
+.section-white {
+  background: #ffffff;
+  margin: 60px 0 0;
+  padding: 64px 24px;
+  border-radius: 0;
+}
+.section-white .agenda-eyebrow { color: #1a4fa8; }
+.section-white .agenda-head { color: #0f1f35; }
+.section-white .agenda-head::before { background: #1a4fa8; }
+.section-white .agenda-sub { color: #5a6a7a; }
+.section-white .agenda-hr { border-color: #e0e7ef; }
+.section-white .ag-row { border-color: #e8edf4; }
+.section-white .ag-row:hover { background: #f4f7fb; }
+.section-white .ag-title { color: #0f1f35; }
+.section-white .ag-cat { color: #8a9ab0; }
+.section-white .ag-detail { color: #5a6a7a; }
+.section-white .ag-link { color: #1a4fa8; }
+
+.section-white .see-all { color: #1a4fa8; border-color: #1a4fa8; }
+.section-white .see-all:hover { background: #1a4fa8; color: #fff; }
+
+/* Quand dark est suivi de blue : on enchaîne sans vide */
+.section-dark + .section-blue {
+  margin-top: 0;
+}
+.section-blue + .section-dark,
+.section-blue + .section-mid,
+.section-mid + .section-blue,
+.section-mid + .section-dark,
+.section-dark + .section-mid {
+  margin-top: 0;
+}
+
+/* Transition douce entre dark et blue : un dégradé subtil */
+.section-dark + .section-blue::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(180deg, #0f1f35 0%, #1a4fa8 100%);
+  z-index: 0;
+}
+.section-dark + .section-blue > * { position: relative; z-index: 1; }
+
 .section-mid {
   background: #e8f0fb;
-  margin: 60px -40px 0;
-  padding: 56px 40px;
+  margin: 60px 0 0;
+  padding: 64px 0;
+}
+.section-mid-inner .elus-grid, .section-mid .section-title, .section-mid .see-all {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 .section-mid .section-title::before { background: #1a4fa8; }
 
@@ -656,6 +744,1039 @@ footer { background: #1a1a1a; color: #fff; padding: 40px 40px 18px; }
   .ag-row-double { grid-template-columns: 70px 20px 1fr; }
   .ag-vsep, .ag-info-r, .ag-thumb-col { display: none; }
 }
+
+/* ═══════════════════════════════════
+   ═══ POLISH & MARQUEE — AJOUTS ═══
+═══════════════════════════════════ */
+
+/* Marquee défilante */
+.marquee-wrap {
+  display: flex;
+  align-items: stretch;
+  background: #fff;
+  border-top: 1px solid #e8e8e5;
+  border-bottom: 1px solid #e8e8e5;
+  margin-top: 14px;
+  overflow: hidden;
+  height: 44px;
+}
+.marquee-label {
+  flex-shrink: 0;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-mid) 100%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 18px 0 22px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 2;
+  box-shadow: 4px 0 12px rgba(26,79,168,0.15);
+}
+.marquee-label::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+  margin-right: 9px;
+  animation: mq-pulse 1.4s ease-in-out infinite;
+  box-shadow: 0 0 0 0 rgba(255,255,255,0.7);
+}
+@keyframes mq-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.6); transform: scale(1); }
+  50% { box-shadow: 0 0 0 6px rgba(255,255,255,0); transform: scale(1.15); }
+}
+.marquee-label::after {
+  content: '';
+  position: absolute;
+  right: -10px;
+  top: 0;
+  bottom: 0;
+  width: 10px;
+  background: linear-gradient(90deg, var(--accent-mid), transparent);
+}
+.marquee-track {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  min-width: 0;
+}
+.marquee-track::before, .marquee-track::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  z-index: 1;
+  pointer-events: none;
+}
+.marquee-track::before {
+  left: 0;
+  background: linear-gradient(90deg, #fff, transparent);
+}
+.marquee-track::after {
+  right: 0;
+  background: linear-gradient(-90deg, #fff, transparent);
+}
+.marquee-content {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  flex-shrink: 0;
+  padding-right: 36px;
+  animation: mq-scroll 50s linear infinite;
+  white-space: nowrap;
+}
+.marquee-wrap:hover .marquee-content { animation-play-state: paused; }
+@keyframes mq-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+.mq-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #333;
+  font-weight: 500;
+}
+.mq-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+.mq-tag {
+  background: var(--accent-light);
+  color: var(--accent);
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.mq-tag.alert { background: #fff1e0; color: #b8530a; }
+.mq-sep {
+  color: #c8c8c4;
+  font-size: 8px;
+  flex-shrink: 0;
+}
+
+/* === POLISH SECTIONS === */
+
+/* Animation fade-in subtile sur les cards */
+@keyframes card-pop {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Actualités — plus de profondeur */
+.actu-main {
+  border-radius: 18px;
+  transition: transform 0.4s cubic-bezier(.2,.8,.2,1), box-shadow 0.4s ease;
+  box-shadow: 0 4px 24px rgba(26,79,168,0.08);
+}
+.actu-main:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 48px rgba(26,79,168,0.18);
+}
+.actu-main-img { transition: transform 0.6s ease; }
+.actu-main:hover .actu-main-img { transform: scale(1.04); }
+.actu-card {
+  border-radius: 18px;
+  transition: transform 0.4s cubic-bezier(.2,.8,.2,1), box-shadow 0.4s ease;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+.actu-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0,0,0,0.18);
+}
+.actu-card-bg-img { transition: transform 0.6s ease; }
+.actu-card:hover .actu-card-bg-img { transform: scale(1.06); }
+
+/* Service cards — micro-anim sur l'icône */
+.service-card {
+  border-radius: 16px;
+  transition: transform 0.3s cubic-bezier(.2,.8,.2,1), box-shadow 0.3s ease, border-color 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  transition: left 0.6s ease;
+}
+.service-card:hover::before { left: 100%; }
+.service-card svg { transition: transform 0.4s cubic-bezier(.2,.8,.2,1); }
+.service-card:hover svg { transform: scale(1.15) rotate(-4deg); }
+.section-blue .service-card:hover svg { transform: scale(1.15) rotate(-4deg); }
+
+/* Pratique cards — vivant */
+.pratique-card {
+  border-radius: 16px;
+  transition: transform 0.3s cubic-bezier(.2,.8,.2,1), box-shadow 0.3s, background 0.2s;
+}
+.pratique-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(26,79,168,0.10);
+}
+.pratique-icon { transition: transform 0.3s ease, background 0.3s; }
+.pratique-card:hover .pratique-icon {
+  background: var(--accent);
+  transform: rotate(-6deg) scale(1.05);
+}
+.pratique-card:hover .pratique-icon svg { stroke: #fff; }
+.pratique-icon svg { transition: stroke 0.3s; }
+
+/* Élus — portraits avec hover */
+.elu-card {
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(.2,.8,.2,1), box-shadow 0.3s;
+}
+.elu-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(26,79,168,0.18);
+}
+.elu-photo { overflow: hidden; }
+.elu-photo img { transition: transform 0.5s ease; }
+.elu-card:hover .elu-photo img { transform: scale(1.06); }
+
+/* Urbanisme — barre latérale colorée */
+.urba-card {
+  border-radius: 14px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(.2,.8,.2,1), box-shadow 0.3s, background 0.2s;
+}
+.urba-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 0;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+.urba-card:hover::before { width: 4px; }
+.urba-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(26,79,168,0.12);
+}
+.urba-badge { transition: transform 0.2s; }
+.urba-card:hover .urba-badge { transform: translateX(2px); }
+
+/* Associations — slide */
+.asso-card {
+  border-radius: 14px;
+  transition: transform 0.3s cubic-bezier(.2,.8,.2,1), box-shadow 0.3s, background 0.2s;
+}
+.asso-card:hover {
+  transform: translateY(-3px) translateX(2px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+}
+.asso-icon { transition: transform 0.3s ease; }
+.asso-card:hover .asso-icon { transform: rotate(-8deg) scale(1.08); }
+
+/* Contact — soin du formulaire */
+.contact-card {
+  border-radius: 16px;
+  transition: box-shadow 0.3s;
+}
+.contact-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.06); }
+.contact-input {
+  border-radius: 10px;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+.contact-input:focus {
+  background: #fff;
+  box-shadow: 0 0 0 3px var(--accent-light);
+}
+.contact-submit {
+  border-radius: 999px;
+  position: relative;
+  overflow: hidden;
+}
+.contact-submit::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.3) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+.contact-submit:hover::after { transform: translateX(100%); }
+.map-placeholder {
+  border-radius: 14px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+.map-placeholder:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(26,79,168,0.15);
+}
+
+/* Agenda rows — left accent */
+.ag-row {
+  border-radius: 12px;
+  padding: 20px 16px;
+  transition: background 0.2s, transform 0.2s;
+  margin: 0 -16px;
+}
+.ag-row:hover { transform: translateX(4px); }
+
+
+.ag-thumb { transition: transform 0.4s ease; }
+.ag-row:hover .ag-thumb { transform: scale(1.05); }
+
+/* See-all — bouton plus vivant */
+.see-all {
+  position: relative;
+  overflow: hidden;
+}
+.see-all svg { transition: transform 0.25s ease; }
+.see-all:hover svg { transform: translateX(4px); }
+
+/* section-title::before défini plus haut */
+
+/* Alerte — plus vivante */
+.alerte {
+  border-radius: 14px;
+  position: relative;
+  overflow: hidden;
+}
+.alerte::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #e6b800, #b58a00);
+  animation: alerte-glow 2.4s ease-in-out infinite;
+}
+@keyframes alerte-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+.alerte svg { animation: alerte-shake 3s ease-in-out infinite; }
+@keyframes alerte-shake {
+  0%, 90%, 100% { transform: rotate(0); }
+  93% { transform: rotate(-8deg); }
+  96% { transform: rotate(8deg); }
+}
+
+/* Shortcuts — hover plus marqué */
+.sc {
+  position: relative;
+  transition: background 0.2s, transform 0.2s;
+}
+.sc::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: all 0.25s ease;
+  transform: translateX(-50%);
+}
+.sc:hover::after { width: 60%; }
+.sc svg { transition: transform 0.3s ease, stroke 0.2s; }
+.sc:hover svg { transform: translateY(-2px); stroke: var(--accent); }
+.sc:hover span { color: var(--accent); }
+.sc span { transition: color 0.2s; }
+
+/* Hero — touche dynamique */
+.hero-title-sub {
+  border-radius: 0 12px 12px 0;
+}
+.hero-scroll svg { animation: scroll-bounce 2s ease-in-out infinite; }
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+
+/* Sections colorées — radius doux */
+.section-blue, .section-mid {
+  border-radius: 0;
+}
+.section-dark { border-radius: 0; }
+
+/* Responsive marquee */
+@media (max-width: 700px) {
+  .marquee-wrap { height: 40px; }
+  .marquee-label { padding: 0 12px 0 14px; font-size: 10px; }
+  .mq-item { font-size: 12px; }
+}
+
+/* ═══════════════════════════════════
+   ═══ AGENDA — NEW CARD GRID ═══
+═══════════════════════════════════ */
+.agenda-section { margin-top: 0 !important; }
+.agenda-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+.agenda-header-l { max-width: 580px; }
+.agenda-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #4a9eff;
+  margin-bottom: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.agenda-eyebrow::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: #4a9eff;
+}
+.section-dark .agenda-head {
+  font-size: 36px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 14px;
+  letter-spacing: -0.02em;
+  display: block;
+}
+.section-dark .agenda-head::before { display: none; }
+.agenda-sub {
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.55;
+  max-width: 540px;
+}
+.see-all-light {
+  color: #4a9eff !important;
+  border-color: rgba(74, 158, 255, 0.4) !important;
+  margin-top: 0 !important;
+}
+.see-all-light:hover {
+  background: #4a9eff !important;
+  color: #fff !important;
+  border-color: #4a9eff !important;
+}
+.see-all-dark {
+  color: #1a4fa8 !important;
+  border-color: rgba(26, 79, 168, 0.4) !important;
+  margin-top: 0 !important;
+}
+.see-all-dark:hover {
+  background: #1a4fa8 !important;
+  color: #fff !important;
+  border-color: #1a4fa8 !important;
+}
+
+/* ══════════════════════════════════════
+   AGENDA — Layout propre alterné gauche/droite
+   ══════════════════════════════════════ */
+.agenda-section { padding: 0; margin: 0; }
+.agenda-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  gap: 16px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e1e5e9;
+}
+.agenda-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gold-mid);
+  margin-bottom: 8px;
+  display: block;
+}
+.agenda-eyebrow::before { content: none; display: none; }
+.agenda-head {
+  font-size: 38px;
+  font-weight: 800;
+  color: #0f1a2e;
+  letter-spacing: -.02em;
+  line-height: 1;
+  margin: 0;
+  padding-left: 0;
+  
+}
+.agenda-head::before { content: none !important; display: none !important; }
+.agenda-sub { display: none; }
+
+/* Liste d'items */
+.ag-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.ag-timeline::before { content: none; display: none; }
+
+/* Chaque item : grille 2 colonnes simples */
+.ag-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 48px;
+  padding: 40px 0;
+  border-bottom: 1px solid #e1e5e9;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity .2s;
+}
+.ag-item:last-child { border-bottom: none; }
+.ag-item:hover { opacity: .85; }
+.ag-item:hover .ag-title { color: var(--accent); }
+
+/* Spine et dot supprimés */
+.ag-spine { display: none; }
+
+/* Sides */
+.ag-side { padding: 0; }
+.ag-side--left { text-align: left; }
+.ag-side--right { text-align: left; }
+
+/* Date */
+.ag-date {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: baseline !important;
+  gap: 10px !important;
+  margin: 0 0 14px !important;
+  background: none !important;
+  width: auto !important;
+  height: auto !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  color: inherit !important;
+  text-align: left !important;
+}
+.ag-day {
+  font-size: 64px !important;
+  font-weight: 800 !important;
+  color: #0f1a2e !important;
+  line-height: 1 !important;
+  letter-spacing: -.04em !important;
+  
+  background: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  display: inline !important;
+  width: auto !important;
+  height: auto !important;
+  text-align: left !important;
+}
+.ag-month {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: .12em !important;
+  color: var(--gold-mid) !important;
+  background: none !important;
+  padding: 0 !important;
+  display: inline !important;
+  margin: 0 !important;
+}
+
+/* Cat & title */
+.ag-cat {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gold-mid);
+  margin: 0 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.ag-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0f1a2e;
+  line-height: 1.2;
+  margin: 0 0 12px;
+  
+  letter-spacing: -.01em;
+  transition: color .2s;
+}
+.ag-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  font-size: 13px;
+  color: var(--text-soft);
+  margin: 0 0 10px;
+}
+.ag-meta span + span::before { content: '·\00a0'; color: var(--gold); margin-right: 4px; }
+.ag-desc {
+  font-size: 14px;
+  color: var(--text-soft);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Image */
+.ag-img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #e8eff7;
+}
+.ag-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Flag */
+.ag-item-flag {
+  background: var(--red);
+  color: #fff;
+  font-size: 9px;
+  padding: 3px 9px;
+  border-radius: 20px;
+  letter-spacing: .08em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .ag-item { grid-template-columns: 1fr; gap: 20px; padding: 28px 0; }
+  .ag-day { font-size: 44px; }
+  .ag-title { font-size: 18px; }
+}
+
+.commerce-filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.cf-btn {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1.5px solid #dce4ef;
+  background: #fff;
+  color: #5a6a7a;
+  font-size: 12.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all .18s;
+  font-family: inherit;
+}
+.cf-btn:hover { border-color: #1a4fa8; color: #1a4fa8; }
+.cf-btn.active { background: #1a4fa8; border-color: #1a4fa8; color: #fff; }
+.commerce-section-wrap {
+  background: #fff;
+  margin: 32px -40px;
+  padding: 48px 40px;
+  box-shadow: 0 -1px 0 #e8edf4, 0 1px 0 #e8edf4;
+}
+.commerce-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.commerce-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #fff;
+  border: 1.5px solid #e8edf4;
+  border-radius: 14px;
+  padding: 14px;
+  text-decoration: none;
+  transition: border-color .18s, box-shadow .18s, transform .18s;
+}
+.commerce-card:hover {
+  border-color: #1a4fa8;
+  box-shadow: 0 4px 18px rgba(26,79,168,.08);
+  transform: translateY(-2px);
+}
+.cc-img {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
+  display: block;
+}
+.cc-img-fallback {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .5px;
+}
+.cc-body { flex: 1; min-width: 0; }
+.cc-name {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #0f1f35;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 4px;
+}
+.cc-cat { margin-bottom: 5px; }
+.cc-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 20px;
+  display: inline-block;
+}
+.cc-hours {
+  font-size: 11.5px;
+  color: #7a8a9a;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.cc-arrow { color: #c5d0dc; flex-shrink: 0; transition: color .18s; }
+.commerce-card:hover .cc-arrow { color: #1a4fa8; }
+.commerce-card.hidden { display: none; }
+@media (max-width: 900px) { .commerce-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .commerce-grid { grid-template-columns: 1fr; } }
+
+/* Hide old hr */
+.agenda-hr { display: none; }
+
+/* Cards grid */
+.agenda-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+.ag-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1.5px solid #e8edf4;
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.35s cubic-bezier(.2,.8,.2,1), box-shadow 0.35s, border-color 0.25s;
+}
+.ag-card:hover {
+  transform: translateY(-5px);
+  border-color: #1a4fa8;
+  box-shadow: 0 12px 32px rgba(26,79,168,0.12);
+}
+.ag-card-img {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+.ag-card-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(.2,.8,.2,1);
+}
+.ag-card:hover .ag-card-img img { transform: scale(1.06); }
+.ag-card-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 30%, rgba(0,0,0,0.3) 100%);
+}
+.ag-card-date {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(8px);
+  border-radius: 10px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 50px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+}
+.ag-card-day {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0f1f35;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.ag-card-month {
+  font-size: 9px;
+  font-weight: 700;
+  color: #1a4fa8;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 3px;
+}
+.ag-card-flag {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  background: linear-gradient(135deg, #ff8a3a, #f06030);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 5px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 12px rgba(240, 96, 48, 0.4);
+}
+.ag-card-body {
+  padding: 16px 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+}
+.ag-card-cat {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #1a4fa8;
+  margin-bottom: 2px;
+}
+.ag-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f1f35;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin-bottom: 6px;
+}
+.ag-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 8px;
+  font-size: 11.5px;
+  color: #7a8a9a;
+}
+.ag-card-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.ag-card-meta svg { stroke: #7a8a9a; flex-shrink: 0; }
+.ag-card-desc {
+  font-size: 12.5px;
+  color: #7a8a9a;
+  line-height: 1.5;
+  margin-top: auto;
+}
+
+@media (max-width: 1100px) {
+  .agenda-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .agenda-grid { grid-template-columns: 1fr; }
+  .agenda-header { flex-direction: column; align-items: flex-start; }
+  .section-dark .agenda-head { font-size: 28px; }
+}
+
+/* ── Scroll animations ── */
+.js-loaded .reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .6s cubic-bezier(.2,.8,.2,1), transform .6s cubic-bezier(.2,.8,.2,1);
+}
+.js-loaded .reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.js-loaded .reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity .65s cubic-bezier(.2,.8,.2,1), transform .65s cubic-bezier(.2,.8,.2,1);
+}
+.js-loaded .reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.js-loaded .reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity .65s cubic-bezier(.2,.8,.2,1), transform .65s cubic-bezier(.2,.8,.2,1);
+}
+.js-loaded .reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.reveal-delay-1 { transition-delay: .1s; }
+.reveal-delay-2 { transition-delay: .2s; }
+.reveal-delay-3 { transition-delay: .3s; }
+.reveal-delay-4 { transition-delay: .4s; }
+.reveal-delay-5 { transition-delay: .5s; }
+
+/* ── Charte couleur Rochefort - overrides globaux ── */
+.ag-item-cat { color: var(--gold-mid) !important; }
+.agenda-eyebrow { color: var(--gold) !important; }
+.cf-btn.active { background: var(--gold) !important; border-color: var(--gold) !important; color: #0f1a2e !important; }
+.cf-btn:hover { border-color: var(--gold) !important; color: var(--gold-mid) !important; }
+.cc-badge { opacity: .9; }
+.section-white .see-all, .see-all-dark {
+  color: var(--gold-mid) !important;
+  border-color: var(--gold) !important;
+}
+.section-white .see-all:hover, .see-all-dark:hover {
+  background: var(--gold) !important;
+  color: #0f1a2e !important;
+}
+.elus-wrap .see-all { color: var(--gold-mid) !important; border-color: var(--gold) !important; }
+.elus-wrap .see-all:hover { background: var(--gold) !important; color: #0f1a2e !important; }
+
+/* ── Timeline gold ── */
+.ag-timeline::before { background: linear-gradient(180deg, var(--gold) 0%, rgba(200,168,75,.2) 100%); }
+
+/* Séparateur entre sections du même bloc */
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 80px 0 60px;
+  position: relative;
+}
+.section-divider::before,
+.section-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c7ccd2 50%, transparent);
+}
+.section-divider span {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin: 0 18px;
+  background: var(--gold);
+  border-radius: 50%;
+  flex-shrink: 0;
+  position: relative;
+}
+.section-divider span::before,
+.section-divider span::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  background: var(--gold);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  opacity: .4;
+}
+.section-divider span::before { left: -14px; }
+.section-divider span::after { right: -14px; }
+
+/* ══════════════════════════════════════════════════
+   BLOCS DE PAGE — Découpage logique
+   ══════════════════════════════════════════════════ */
+.bloc-white {
+  background: #ffffff;
+  padding: 80px 0 100px;
+  margin: 60px 0;
+  border-top: 1px solid #e1e5e9;
+  border-bottom: 1px solid #e1e5e9;
+  position: relative;
+}
+.bloc-white::before,
+.bloc-white::after {
+  content: '';
+  display: block;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold) 50%, transparent);
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  opacity: .4;
+}
+.bloc-white::before { top: -1px; }
+.bloc-white::after { bottom: -1px; }
+.bloc-white .main-inner { padding-top: 0; }
+.bloc-white .section-title { color: #0f1a2e; }
+
+.bloc-beige {
+  padding: 60px 0 80px;
+}
+
+.bloc-contact {
+  background: var(--dark);
+  padding: 80px 0 100px;
+  color: #fff;
+  position: relative;
+  margin-top: 40px;
+}
+.bloc-contact::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--gold);
+}
+.bloc-contact .section-title { color: #fff; }
+.bloc-contact .section-title::before { background: var(--gold); }
+.bloc-contact .section-subtitle { color: rgba(255,255,255,0.7); }
+.bloc-contact h3 { color: #fff !important; }
+.bloc-contact .contact-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.bloc-contact .contact-row strong { color: rgba(255,255,255,0.9); }
+.bloc-contact .contact-row { color: rgba(255,255,255,0.7); }
+.bloc-contact .contact-row svg { stroke: var(--gold); }
+.bloc-contact .contact-input {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #fff;
+}
+.bloc-contact .contact-input::placeholder { color: rgba(255,255,255,0.4); }
+.bloc-contact .contact-input:focus {
+  border-color: var(--gold);
+  background: rgba(255,255,255,0.08);
+}
+.bloc-contact .contact-submit {
+  background: var(--gold);
+  color: #0f1a2e;
+}
+.bloc-contact .contact-submit:hover { background: var(--gold-mid); color: #fff; }
+
+/* Forcer le footer à coller au bloc contact */
+.bloc-contact + footer {
+  margin-top: 0 !important;
+  background: #050b18;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
 </style>
 </head>
 <body>
@@ -663,13 +1784,14 @@ footer { background: #1a1a1a; color: #fff; padding: 40px 40px 18px; }
 <!-- ══ NAV ══ -->
 <div class="nav-wrap">
   <nav class="nav">
-    <a class="nav-logo" href="#">Rochefort-du-Gard</a>
+    <a class="nav-logo" href="#"><img src="Logo_Rochefort-du-Gard.png" alt="Rochefort-du-Gard" style="height:48px;width:auto;display:block;filter:brightness(0) invert(1)"></a>
     <div class="nav-links">
       <a href="#services" class="active">Services</a>
       <a href="#actualites">Actualités</a>
       <a href="#agenda">Agenda</a>
-      <a href="#elus">Élus</a>
-      <a href="#contact">Contact</a>
+      <a href="#commerces">Commerces</a>
+      <a href="#pratique">Famille</a>
+      <a href="#services">Démarches</a>
     </div>
     <div class="nav-right">
       <button class="nav-search-btn" aria-label="Rechercher">
@@ -690,6 +1812,7 @@ footer { background: #1a1a1a; color: #fff; padding: 40px 40px 18px; }
   <a href="#services" onclick="closeMenu()">Services en ligne</a>
   <a href="#actualites" onclick="closeMenu()">Actualités</a>
   <a href="#agenda" onclick="closeMenu()">Agenda</a>
+  <a href="#commerces" onclick="closeMenu()">Commerces &amp; artisans</a>
   <a href="#pratique" onclick="closeMenu()">Vie pratique</a>
   <a href="#elus" onclick="closeMenu()">Élus & Conseil</a>
   <a href="#urbanisme" onclick="closeMenu()">Urbanisme</a>
@@ -708,9 +1831,11 @@ footer { background: #1a1a1a; color: #fff; padding: 40px 40px 18px; }
 <section class="hero">
   <img class="hero-img" src="/assets/hero.jpg" alt="Vue de Rochefort-du-Gard" onerror="this.style.display='none'">
   <div class="hero-overlay"></div>
-  <div class="hero-title-overlay">
-    <span class="hero-title-line1">Bienvenue à Rochefort-du-Gard</span>
-    <span class="hero-title-sub">Bienvenue sur le site internet de la commune de Rochefort-du-Gard.<br>Vous trouverez ici une mine d'informations pour bien vivre votre commune.</span>
+  <div class="hero-content">
+    <h1 class="hero-title">
+      <span>Rochefort</span>
+      <span>du Gard</span>
+    </h1>
   </div>
   <div class="hero-scroll">
     Scroll
@@ -755,6 +1880,7 @@ footer { background: #1a1a1a; color: #fff; padding: 40px 40px 18px; }
 <!-- ══ MAIN ══ -->
 <div class="main">
 
+  <div class="main-inner" style="padding-top:0">
   <!-- ALERTE -->
   <div style="margin-top:28px;">
     <div class="alerte">
@@ -766,9 +1892,9 @@ footer { background: #1a1a1a; color: #fff; padding: 40px 40px 18px; }
   </div>
 
   <!-- ══ ACTUALITÉS ══ -->
-  <h2 class="section-title" id="actualites">Actualités</h2>
+  <h2 class="section-title reveal" id="actualites">Actualités</h2>
   <div class="actu-grid">
-    <div class="actu-main">
+    <div class="actu-main reveal">
       <div class="actu-main-bg"></div>
       <img class="actu-main-img" src="/assets/broyage.jpg" alt="Broyage" onerror="this.style.display='none'">
       <div class="actu-main-overlay"></div>
@@ -793,107 +1919,219 @@ footer { background: #1a1a1a; color: #fff; padding: 40px 40px 18px; }
       </div>
     </div>
   </div>
-  </div><!-- /section-blue -->
   <a class="see-all" href="#">Toutes les actualités <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
 
+  </div><!-- /main-inner -->
+
   <!-- ══ AGENDA ══ -->
-  <div class="section-dark">
+  <div class="main-inner">
   <div class="agenda-section" id="agenda">
-    <h2 class="agenda-head">Agenda</h2>
-    <hr class="agenda-hr">
-    <div class="ag-row">
-      <div class="ag-date"><span class="ag-daynum">12</span><span class="ag-month">Juin</span></div>
-      <div class="ag-info">
-        <div class="ag-cat">Categorie</div>
-        <div class="ag-title">Cabinet de curiosité</div>
-        <div class="ag-detail">Les plats avex. ar-nacc lecture — maren-arcia…</div>
-        <a class="ag-link" href="#">Vilaneltater &gt;</a>
+    <div class="agenda-header">
+      <div class="agenda-header-l">
+        <div class="agenda-eyebrow">Ne manquez rien</div>
+        <h2 class="agenda-head">Agenda</h2>
       </div>
-      <div class="ag-thumb-col"><div class="ag-thumb village"><img src="/assets/agenda1.jpg" alt="" onerror="this.style.display='none'"></div></div>
+      <a class="see-all see-all-dark" href="#">Tout l'agenda <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
     </div>
-    <div class="ag-row">
-      <div class="ag-date"><span class="ag-daynum">15</span><span class="ag-month">Juin</span></div>
-      <div class="ag-info">
-        <div class="ag-cat">Categorie</div>
-        <div class="ag-title">Séance lecture</div>
-        <div class="ag-detail">L'do'ogue</div>
-      </div>
-      <div class="ag-thumb-col"><div class="ag-thumb green"></div></div>
-    </div>
-    <div class="ag-row">
-      <div class="ag-date"><span class="ag-daynum">15</span><span class="ag-month">Juin</span></div>
-      <div class="ag-info">
-        <div class="ag-cat">Categorie</div>
-        <div class="ag-title">Fête de la curiosité</div>
-        <div class="ag-detail">Desc ummew de 2026 — 13h – 12 Juin</div>
-      </div>
-      <div class="ag-thumb-col"><div class="ag-thumb green"><img src="/assets/agenda2.jpg" alt="" onerror="this.style.display='none'"></div></div>
-    </div>
-    <div class="ag-row">
-      <div class="ag-date"><span class="ag-daynum">21</span><span class="ag-month">Juin</span></div>
-      <div class="ag-info">
-        <div class="ag-cat">Categorie</div>
-        <div class="ag-title">Fête de la Musique</div>
-        <div class="ag-detail">Luntonite en 2026 — 12h – 12 Juin</div>
-      </div>
-      <div class="ag-thumb-col"><div class="ag-thumb orange"><img src="/assets/agenda3.jpg" alt="" onerror="this.style.display='none'"></div></div>
+
+    <div class="ag-timeline">
+
+      <!-- 12 Juin : texte gauche, image droite -->
+      <a class="ag-item reveal" href="#">
+        <div class="ag-side ag-side--left">
+          <p class="ag-date"><span class="ag-day">12</span> <span class="ag-month">Juin</span></p>
+          <p class="ag-cat">Exposition</p>
+          <p class="ag-title">Cabinet de curiosité</p>
+          <p class="ag-meta"><span>19h00</span><span>Médiathèque</span></p>
+          <p class="ag-desc">Vernissage suivi d'une lecture-spectacle dans le hall.</p>
+        </div>
+        <div class="ag-side ag-side--right">
+          <div class="ag-img">
+            <img src="/assets/agenda1.jpg" alt="" onerror="this.style.display='none'">
+          </div>
+        </div>
+      </a>
+
+      <!-- 15 Juin : image gauche, texte droite -->
+      <a class="ag-item reveal" href="#">
+        <div class="ag-side ag-side--left">
+          <div class="ag-img">
+            <img src="/assets/agenda-seance.jpg" alt="" onerror="this.style.display='none'">
+          </div>
+        </div>
+        <div class="ag-side ag-side--right">
+          <p class="ag-date"><span class="ag-day">15</span> <span class="ag-month">Juin</span></p>
+          <p class="ag-cat">Lecture</p>
+          <p class="ag-title">Séance lecture</p>
+          <p class="ag-meta"><span>14h30</span><span>Salle Brassens</span></p>
+          <p class="ag-desc">Avec l'association Les Amis du Patrimoine. Entrée libre.</p>
+        </div>
+      </a>
+
+      <!-- 18 Juin : texte gauche, image droite -->
+      <a class="ag-item reveal" href="#">
+        <div class="ag-side ag-side--left">
+          <p class="ag-date"><span class="ag-day">18</span> <span class="ag-month">Juin</span></p>
+          <p class="ag-cat">Festival</p>
+          <p class="ag-title">Fête de la curiosité</p>
+          <p class="ag-meta"><span>10h — 18h</span><span>Centre village</span></p>
+          <p class="ag-desc">Ateliers, animations, marché des savoir-faire dans les rues.</p>
+        </div>
+        <div class="ag-side ag-side--right">
+          <div class="ag-img">
+            <img src="/assets/agenda2.jpg" alt="" onerror="this.style.display='none'">
+          </div>
+        </div>
+      </a>
+
+      <!-- 21 Juin : image gauche, texte droite -->
+      <a class="ag-item reveal" href="#">
+        <div class="ag-side ag-side--left">
+          <div class="ag-img">
+            <img src="/assets/agenda3.jpg" alt="" onerror="this.style.display='none'">
+          </div>
+        </div>
+        <div class="ag-side ag-side--right">
+          <p class="ag-date"><span class="ag-day">21</span> <span class="ag-month">Juin</span></p>
+          <p class="ag-cat">Musique <span class="ag-item-flag">Incontournable</span></p>
+          <p class="ag-title">Fête de la Musique</p>
+          <p class="ag-meta"><span>19h — 23h</span><span>Place de la Mairie</span></p>
+          <p class="ag-desc">Quatre scènes, vingt artistes, une soirée pour le solstice.</p>
+        </div>
+      </a>
+
     </div>
   </div>
-  <a class="see-all" href="#">Tout l'agenda <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
   </div><!-- /agenda-section -->
-  </div><!-- /section-dark -->
+  </div><!-- /main-inner agenda -->
 
+  <!-- ═══════ BLOC BLANC : Services / Commerces / Vie pratique / Élus ═══════ -->
+  <div class="bloc-white">
+  <div class="main-inner">
   <!-- ══ SERVICES EN LIGNE ══ -->
-  <div class="section-blue">
-  <h2 class="section-title" id="services">Services en ligne</h2>
-  <p class="section-subtitle" style="color:rgba(255,255,255,0.7)">Effectuez vos démarches administratives sans vous déplacer</p>
+  <h2 class="section-title reveal" id="services">Services en ligne</h2>
+  <p class="section-subtitle reveal reveal-delay-1">Effectuez vos démarches administratives sans vous déplacer</p>
   <div class="services-grid">
-    <a class="service-card" href="#">
+    <a class="service-card reveal" href="#">
       <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
       <div class="service-card-title">État civil</div>
       <div class="service-card-sub">Actes de naissance, mariage, décès</div>
     </a>
-    <a class="service-card" href="#">
+    <a class="service-card reveal" href="#">
       <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
       <div class="service-card-title">Passeport & CNI</div>
       <div class="service-card-sub">Prise de rendez-vous en ligne</div>
     </a>
-    <a class="service-card" href="#">
+    <a class="service-card reveal" href="#">
       <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
       <div class="service-card-title">Urbanisme</div>
       <div class="service-card-sub">Permis de construire, déclarations</div>
     </a>
-    <a class="service-card" href="#">
+    <a class="service-card reveal" href="#">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
       <div class="service-card-title">Rendez-vous</div>
       <div class="service-card-sub">Réserver un créneau en mairie</div>
     </a>
-    <a class="service-card" href="#">
+    <a class="service-card reveal" href="#">
       <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
       <div class="service-card-title">Inscriptions scolaires</div>
       <div class="service-card-sub">École primaire & maternelle</div>
     </a>
-    <a class="service-card" href="#">
+    <a class="service-card reveal" href="#">
       <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
       <div class="service-card-title">Listes électorales</div>
       <div class="service-card-sub">Inscription & vérification</div>
     </a>
-    <a class="service-card" href="#">
+    <a class="service-card reveal" href="#">
       <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       <div class="service-card-title">Signalement</div>
       <div class="service-card-sub">Voirie, éclairage, propreté</div>
     </a>
-    <a class="service-card" href="#">
+    <a class="service-card reveal" href="#">
       <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
       <div class="service-card-title">Autres démarches</div>
       <div class="service-card-sub">Toutes nos démarches en ligne</div>
     </a>
   </div>
 
-  </div><!-- /section-blue -->
+  <!-- ══ COMMERCES PARTENAIRES ══ -->
+  <h2 class="section-title reveal" id="commerces">Commerces &amp; artisans</h2>
+  <p class="section-subtitle reveal reveal-delay-1">Les adresses incontournables de Rochefort-du-Gard</p>
+  <div class="commerce-filters">
+    <button class="cf-btn active" onclick="filterCommerce(this,'all')">Tous</button>
+    <button class="cf-btn" onclick="filterCommerce(this,'resto')">Restauration</button>
+    <button class="cf-btn" onclick="filterCommerce(this,'artisan')">Artisans</button>
+    <button class="cf-btn" onclick="filterCommerce(this,'service')">Services</button>
+    <button class="cf-btn" onclick="filterCommerce(this,'loisir')">Loisirs</button>
+  </div>
+  <div class="commerce-grid" id="commerce-grid">
+    <a class="commerce-card reveal" href="#" data-cat="resto">
+      <img class="cc-img" src="/assets/commerces/au-terroir-gardois.jpg" alt="Au Terroir Gardois" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="cc-img-fallback" style="display:none;background:#e8f0fb;color:#1a4fa8">AT</div>
+      <div class="cc-body">
+        <div class="cc-name">Au Terroir Gardois</div>
+        <div class="cc-cat"><span class="cc-badge" style="background:#e8f0fb;color:#1a4fa8">Restauration</span></div>
+        <div class="cc-hours"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Mar–Dim · 12h–14h &amp; 19h–22h</div>
+      </div>
+      <div class="cc-arrow"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></div>
+    </a>
+    <a class="commerce-card reveal reveal-delay-1" href="#" data-cat="artisan">
+      <img class="cc-img" src="/assets/commerces/maconnerie-blanc.jpg" alt="Maçonnerie Blanc" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="cc-img-fallback" style="display:none;background:#fff3e0;color:#e65c00">MB</div>
+      <div class="cc-body">
+        <div class="cc-name">Maçonnerie Blanc &amp; Fils</div>
+        <div class="cc-cat"><span class="cc-badge" style="background:#fff3e0;color:#e65c00">Artisan</span></div>
+        <div class="cc-hours"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Lun–Ven · 8h–18h</div>
+      </div>
+      <div class="cc-arrow"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></div>
+    </a>
+    <a class="commerce-card reveal reveal-delay-2" href="#" data-cat="service">
+      <img class="cc-img" src="/assets/commerces/pharmacie.jpg" alt="Pharmacie du Village" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="cc-img-fallback" style="display:none;background:#e8f5e9;color:#2e7d32">PH</div>
+      <div class="cc-body">
+        <div class="cc-name">Pharmacie du Village</div>
+        <div class="cc-cat"><span class="cc-badge" style="background:#e8f5e9;color:#2e7d32">Service</span></div>
+        <div class="cc-hours"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Lun–Sam · 8h30–19h30</div>
+      </div>
+      <div class="cc-arrow"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></div>
+    </a>
+    <a class="commerce-card reveal reveal-delay-1" href="#" data-cat="loisir">
+      <img class="cc-img" src="/assets/commerces/espace-ceramique.jpg" alt="Espace Céramique" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="cc-img-fallback" style="display:none;background:#f3e5f5;color:#7b1fa2">EC</div>
+      <div class="cc-body">
+        <div class="cc-name">Espace Céramique</div>
+        <div class="cc-cat"><span class="cc-badge" style="background:#f3e5f5;color:#7b1fa2">Loisirs</span></div>
+        <div class="cc-hours"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Mer–Dim · 10h–18h</div>
+      </div>
+      <div class="cc-arrow"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></div>
+    </a>
+    <a class="commerce-card reveal reveal-delay-3" href="#" data-cat="resto">
+      <img class="cc-img" src="/assets/commerces/boulangerie-pignol.jpg" alt="Boulangerie Pignol" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="cc-img-fallback" style="display:none;background:#fce4ec;color:#c62828">BP</div>
+      <div class="cc-body">
+        <div class="cc-name">Boulangerie Pignol</div>
+        <div class="cc-cat"><span class="cc-badge" style="background:#fce4ec;color:#c62828">Restauration</span></div>
+        <div class="cc-hours"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Lun–Sam · 6h30–13h</div>
+      </div>
+      <div class="cc-arrow"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></div>
+    </a>
+    <a class="commerce-card reveal reveal-delay-2" href="#" data-cat="artisan">
+      <img class="cc-img" src="/assets/commerces/electricite-provencale.jpg" alt="Électricité Provençale" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="cc-img-fallback" style="display:none;background:#e0f7fa;color:#00695c">EP</div>
+      <div class="cc-body">
+        <div class="cc-name">Électricité Provençale</div>
+        <div class="cc-cat"><span class="cc-badge" style="background:#e0f7fa;color:#00695c">Artisan</span></div>
+        <div class="cc-hours"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Lun–Ven · 7h30–17h30</div>
+      </div>
+      <div class="cc-arrow"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></div>
+    </a>
+  </div>
+  <div style="text-align:center;margin-top:24px">
+    <a class="see-all see-all-dark" href="#" style="display:inline-flex">Tous les commerces <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left:6px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+  </div>
 
   <!-- ══ VIE PRATIQUE ══ -->
-  <h2 class="section-title" id="pratique">Vie pratique</h2>
+  <h2 class="section-title reveal" id="pratique">Vie pratique</h2>
   <div class="pratique-grid">
     <div class="pratique-card">
       <div class="pratique-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
@@ -950,33 +2188,32 @@ footer { background: #1a1a1a; color: #fff; padding: 40px 40px 18px; }
     </div>
   </div>
 
-  <div class="section-mid">
   <!-- ══ ÉLUS & CONSEIL ══ -->
-  <h2 class="section-title" id="elus">Élus & Conseil municipal</h2>
-  <p class="section-subtitle">Mandat 2020–2026</p>
+  <h2 class="section-title reveal" id="elus">Élus & Conseil municipal</h2>
+  <p class="section-subtitle reveal reveal-delay-1">Mandat 2020–2026</p>
   <div class="elus-grid">
-    <div class="elu-card">
+    <div class="elu-card reveal">
       <div class="elu-photo"><img src="/assets/maire.jpg" alt="Maire" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='flex';this.parentElement.innerHTML='~'"></div>
       <div class="elu-body">
         <div class="elu-name">Jean-Pierre Martin</div>
         <div class="elu-role">Maire</div>
       </div>
     </div>
-    <div class="elu-card">
+    <div class="elu-card reveal reveal-delay-1">
       <div class="elu-photo" style="background:#dde8e0;display:flex;align-items:center;justify-content:center;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
       <div class="elu-body">
         <div class="elu-name">Marie Dupont</div>
         <div class="elu-role">1ère Adjointe — Urbanisme</div>
       </div>
     </div>
-    <div class="elu-card">
+    <div class="elu-card reveal reveal-delay-2">
       <div class="elu-photo" style="background:#e0dde8;display:flex;align-items:center;justify-content:center;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
       <div class="elu-body">
         <div class="elu-name">Pierre Leroy</div>
         <div class="elu-role">2ème Adjoint — Finances</div>
       </div>
     </div>
-    <div class="elu-card">
+    <div class="elu-card reveal reveal-delay-1">
       <div class="elu-photo" style="background:#e8e0dd;display:flex;align-items:center;justify-content:center;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
       <div class="elu-body">
         <div class="elu-name">Sophie Bernard</div>
@@ -985,11 +2222,14 @@ footer { background: #1a1a1a; color: #fff; padding: 40px 40px 18px; }
     </div>
   </div>
   <a class="see-all" href="#">Voir tous les élus <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+  </div><!-- /main-inner -->
+  </div><!-- /bloc-white -->
 
-  </div><!-- /section-mid -->
-
+  <!-- ═══════ BLOC BEIGE 2 : Urbanisme / Associations ═══════ -->
+  <div class="bloc-beige">
+  <div class="main-inner">
   <!-- ══ URBANISME ══ -->
-  <h2 class="section-title" id="urbanisme">Urbanisme & Travaux</h2>
+  <h2 class="section-title reveal" id="urbanisme">Urbanisme & Travaux</h2>
   <div class="urba-grid">
     <div class="urba-card">
       <span class="urba-badge actif">En cours</span>
@@ -1029,9 +2269,11 @@ footer { background: #1a1a1a; color: #fff; padding: 40px 40px 18px; }
     </div>
   </div>
 
+  <div class="section-divider"><span></span></div>
+
   <!-- ══ ASSOCIATIONS ══ -->
-  <h2 class="section-title" id="associations">Associations</h2>
-  <p class="section-subtitle">La vie associative de Rochefort-du-Gard</p>
+  <h2 class="section-title reveal" id="associations">Associations</h2>
+  <p class="section-subtitle reveal reveal-delay-1">La vie associative de Rochefort-du-Gard</p>
   <div class="asso-grid">
     <div class="asso-card">
       <div class="asso-icon sport"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a4fa8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M4.93 4.93l14.14 14.14"/><path d="M9 3.5C9 3.5 8 8 10 12s6 7.5 6 7.5"/><path d="M15 3.5S16 8 14 12s-6 7.5-6 7.5"/></svg></div>
@@ -1077,9 +2319,14 @@ footer { background: #1a1a1a; color: #fff; padding: 40px 40px 18px; }
     </div>
   </div>
   <a class="see-all" href="#">Toutes les associations <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+  </div><!-- /main-inner -->
+  </div><!-- /bloc-beige -->
 
+  <!-- ═══════ BLOC CONTACT ═══════ -->
+  <div class="bloc-contact">
+  <div class="main-inner">
   <!-- ══ CONTACT & ACCÈS ══ -->
-  <h2 class="section-title" id="contact">Contact & Accès</h2>
+  <h2 class="section-title reveal" id="contact">Contact & Accès</h2>
   <div class="contact-grid">
     <div class="contact-card">
       <h3>Mairie de Rochefort-du-Gard</h3>
@@ -1123,7 +2370,7 @@ footer { background: #1a1a1a; color: #fff; padding: 40px 40px 18px; }
       </div>
     </div>
   </div>
-
+  </div><!-- /main-inner -->
 </div><!-- /main -->
 
 <!-- ══ FOOTER ══ -->
@@ -1146,11 +2393,11 @@ footer { background: #1a1a1a; color: #fff; padding: 40px 40px 18px; }
     </div>
   </div>
   <div class="footer-partners">
-    <img src="/assets/partner-avignon.png" alt="Grand Avignon" onerror="this.outerHTML='<div class='partner-placeholder'>Grand<br>Avignon</div>'">
-    <img src="/assets/partner-gard.png" alt="Gard" onerror="this.outerHTML='<div class='partner-placeholder'>Gard</div>'">
-    <img src="/assets/partner-occitanie.png" alt="Occitanie" onerror="this.outerHTML='<div class='partner-placeholder'>Région<br>Occitanie</div>'">
-    <img src="/assets/partner-prefet.png" alt="Préfet du Gard" onerror="this.outerHTML='<div class='partner-placeholder'>Préfet<br>du Gard</div>'">
-    <img src="/assets/partner-europe.png" alt="Europe" onerror="this.outerHTML='<div class='partner-placeholder'>Europe</div>'">
+    <img src="/assets/partner-avignon.png" alt="Grand Avignon" onerror="this.style.display='none'">
+    <img src="/assets/partner-gard.png" alt="Gard" onerror="this.style.display='none'">
+    <img src="/assets/partner-occitanie.png" alt="Occitanie" onerror="this.style.display='none'">
+    <img src="/assets/partner-prefet.png" alt="Préfet du Gard" onerror="this.style.display='none'">
+    <img src="/assets/partner-europe.png" alt="Europe" onerror="this.style.display='none'">
   </div>
   <div class="footer-bottom">
     <div class="footer-bottom-links">
@@ -1168,6 +2415,44 @@ footer { background: #1a1a1a; color: #fff; padding: 40px 40px 18px; }
     </div>
   </div>
 </footer>
+
+<script>
+// ── Scroll reveal via Intersection Observer ──
+document.body.classList.add('js-loaded');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+  observer.observe(el);
+});
+
+// ── Nav scroll effect ──
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('.nav');
+  if (window.scrollY > 60) {
+    nav.style.boxShadow = '0 4px 24px rgba(0,0,0,0.3)';
+  } else {
+    nav.style.boxShadow = 'none';
+  }
+}, { passive: true });
+</script>
+
+<script>
+function filterCommerce(btn, cat) {
+  document.querySelectorAll('.cf-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#commerce-grid .commerce-card').forEach(card => {
+    card.classList.toggle('hidden', cat !== 'all' && card.dataset.cat !== cat);
+  });
+}
+</script>
 
 </body>
 </html>
