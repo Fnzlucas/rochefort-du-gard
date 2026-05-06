@@ -1247,9 +1247,14 @@ footer { background: #1a1a1a; color: #fff; padding: 40px 40px 18px; }
 .ag-spine { display: none; }
 
 /* Sides */
-.ag-side { padding: 0; }
-.ag-side--left { text-align: left; }
-.ag-side--right { text-align: left; }
+.ag-side {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.ag-side--left { text-align: left; align-items: flex-start; }
+.ag-side--right { text-align: left; align-items: flex-start; }
 .ag-side--right .ag-img { margin-left: auto; }
 
 /* Date */
