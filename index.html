@@ -150,7 +150,7 @@ img { display: block; max-width: 100%; }
   text-align: center; margin-top: 32px;
 }
 .hero-title {
-  font-size: clamp(58px,10.5vw,100px);
+  font-size: clamp(36px,5vw,64px);
   font-weight: 800; color: #fff; text-transform: uppercase;
   line-height: .92; letter-spacing: -0.02em;
   text-shadow: 0 2px 30px rgba(0,0,0,0.32),0 1px 6px rgba(0,0,0,0.22);
@@ -559,7 +559,7 @@ footer { background: #1a1a1a; color: #fff; padding: 40px 40px 18px; }
   <img class="hero-img" src="/assets/hero.jpg" alt="Vue de Rochefort-du-Gard" onerror="this.style.display='none'">
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <h1 class="hero-title">Rochefort<br>du Gard</h3>
+    <h1 class="hero-title">Rochefort<br>du Gard</h1>
   </div>
   <div class="hero-scroll">
     Scroll
@@ -970,81 +970,46 @@ footer { background: #1a1a1a; color: #fff; padding: 40px 40px 18px; }
 
 <!-- ══ FOOTER ══ -->
 <footer>
-  <div class="footer-inner">
-    <div>
-      <div class="footer-brand-name">Rochefort-du-Gard</div>
-      <div class="footer-brand-desc">Mairie de Rochefort-du-Gard — Commune du Gard, Région Occitanie. Au service des habitants depuis 1790.</div>
-      <div class="fnl-form">
-        <input class="fnl-inp" type="email" placeholder="Email">
-        <button class="fnl-sub">S'inscrire</button>
-      </div>
-      <div class="fnl-soc">
-        <a href="#" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-        <a href="#" title="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-        <a href="#" title="Twitter/X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+  <div class="footer-top">
+    <div class="footer-logo-col">
+      <img src="/assets/logo.png" alt="Logo Rochefort-du-Gard" class="footer-logo" onerror="this.style.display='none'">
+      <div class="footer-logo-fallback">
+        <div class="footer-logo-title">ROCHEFORT<br><span>DU</span> GARD</div>
+        <div class="footer-logo-sub">Notre Ville</div>
       </div>
     </div>
-    <div class="footer-col">
-      <h4>La commune</h4>
-      <ul>
-        <li><a href="#elus">Élus & conseil</a></li>
-        <li><a href="#">Comptes-rendus</a></li>
-        <li><a href="#">Marchés publics</a></li>
-        <li><a href="#">Budget & finances</a></li>
-        <li><a href="#">Histoire</a></li>
-      </ul>
+    <div class="footer-info-col">
+      <h4>Mairie de Rochefort du Gard</h4>
+      <p>1, Place du Lavoir<br>30650 Rochefort-du-Gard<br>Tél : +33 (0)4 90 26 69 00</p>
     </div>
-    <div class="footer-col">
-      <h4>Services</h4>
-      <ul>
-        <li><a href="#services">Démarches en ligne</a></li>
-        <li><a href="#pratique">Horaires mairie</a></li>
-        <li><a href="#urbanisme">Urbanisme</a></li>
-        <li><a href="#associations">Associations</a></li>
-        <li><a href="#">Médiathèque</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Informations</h4>
-      <ul>
-        <li><a href="#">Mentions légales</a></li>
-        <li><a href="#">Accessibilité</a></li>
-        <li><a href="#">RGPD</a></li>
-        <li><a href="#">Plan du site</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+    <div class="footer-horaires-col">
+      <h4>Horaires d'ouverture</h4>
+      <p>Du lundi au jeudi de 8h30 à 12h et de 13h30 à 17h<br>Le vendredi de 8h30 à 12h et de 13h30 à 16h30</p>
     </div>
   </div>
-  <div class="fbottom">
-    <span>© 2026 Mairie de Rochefort-du-Gard — Tous droits réservés</span>
-    <span><a href="#">Mentions légales</a> · <a href="#">RGPD</a></span>
+  <div class="footer-partners">
+    <img src="/assets/partner-avignon.png" alt="Grand Avignon" onerror="this.outerHTML='<div class='partner-placeholder'>Grand<br>Avignon</div>'">
+    <img src="/assets/partner-gard.png" alt="Gard" onerror="this.outerHTML='<div class='partner-placeholder'>Gard</div>'">
+    <img src="/assets/partner-occitanie.png" alt="Occitanie" onerror="this.outerHTML='<div class='partner-placeholder'>Région<br>Occitanie</div>'">
+    <img src="/assets/partner-prefet.png" alt="Préfet du Gard" onerror="this.outerHTML='<div class='partner-placeholder'>Préfet<br>du Gard</div>'">
+    <img src="/assets/partner-europe.png" alt="Europe" onerror="this.outerHTML='<div class='partner-placeholder'>Europe</div>'">
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-links">
+      <a href="#">Accueil</a>
+      <span>|</span>
+      <a href="#">Accessibilité : partiellement conforme</a>
+      <span>|</span>
+      <a href="#">Plan du site</a>
+      <span>|</span>
+      <a href="#">Mentions légales</a>
+      <span>|</span>
+      <a href="#">Confidentialité</a>
+      <span>|</span>
+      <span>© Creasit</span>
+    </div>
   </div>
 </footer>
-
-<script>
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const menuClose = document.getElementById('menuClose');
-
-  function openMenu() {
-    mobileMenu.classList.add('open');
-    hamburger.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeMenu() {
-    mobileMenu.classList.remove('open');
-    hamburger.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  hamburger.addEventListener('click', () => {
-    mobileMenu.classList.contains('open') ? closeMenu() : openMenu();
-  });
-  menuClose.addEventListener('click', closeMenu);
-
-  // Fermer avec Escape
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
-</script>
 
 </body>
 </html>
