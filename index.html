@@ -176,11 +176,11 @@ img { display: block; max-width: 100%; }
 }
 .hero-title {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(56px, 9vw, 130px);
+  font-size: clamp(40px, 6vw, 88px);
   font-weight: 600;
   color: #fff;
   text-transform: uppercase;
-  line-height: 0.92;
+  line-height: 0.95;
   letter-spacing: 0.005em;
   text-shadow: 0 4px 32px rgba(0,0,0,0.35);
   margin: 0;
@@ -1790,7 +1790,7 @@ footer { background: #1a1a1a; color: #fff; padding: 40px 40px 18px; }
       <a href="#actualites">Actualités</a>
       <a href="#agenda">Agenda</a>
       <a href="#commerces">Commerces</a>
-      <a href="#pratique">Famille</a>
+      <a href="vie-pratique.html">Famille</a>
       <a href="#services">Démarches</a>
     </div>
     <div class="nav-right">
@@ -1813,10 +1813,10 @@ footer { background: #1a1a1a; color: #fff; padding: 40px 40px 18px; }
   <a href="#actualites" onclick="closeMenu()">Actualités</a>
   <a href="#agenda" onclick="closeMenu()">Agenda</a>
   <a href="#commerces" onclick="closeMenu()">Commerces &amp; artisans</a>
-  <a href="#pratique" onclick="closeMenu()">Vie pratique</a>
+  <a href="vie-pratique.html" onclick="closeMenu()">Vie pratique</a>
   <a href="#elus" onclick="closeMenu()">Élus & Conseil</a>
-  <a href="#urbanisme" onclick="closeMenu()">Urbanisme</a>
-  <a href="#associations" onclick="closeMenu()">Associations</a>
+  <a href="urbanisme.html" onclick="closeMenu()">Urbanisme</a>
+  <a href="associations.html" onclick="closeMenu()">Associations</a>
   <a href="#contact" onclick="closeMenu()">Contact & Accès</a>
   <p class="mm-section-label">Accès rapides</p>
   <a class="mm-sub" href="#" onclick="closeMenu()">État civil</a>
@@ -1846,7 +1846,7 @@ footer { background: #1a1a1a; color: #fff; padding: 40px 40px 18px; }
 <!-- ══ RACCOURCIS ══ -->
 <div class="shortcuts-wrap">
   <div class="shortcuts">
-    <a class="sc" href="#pratique">
+    <a class="sc" href="vie-pratique.html">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
       <span>Droits</span>
     </a>
@@ -1854,11 +1854,11 @@ footer { background: #1a1a1a; color: #fff; padding: 40px 40px 18px; }
       <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
       <span>Passeports</span>
     </a>
-    <a class="sc" href="#pratique">
+    <a class="sc" href="vie-pratique.html">
       <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
       <span>Famille</span>
     </a>
-    <a class="sc" href="#urbanisme">
+    <a class="sc" href="urbanisme.html">
       <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
       <span>Travaux</span>
     </a>
@@ -1870,7 +1870,7 @@ footer { background: #1a1a1a; color: #fff; padding: 40px 40px 18px; }
       <svg viewBox="0 0 24 24"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg>
       <span>Plan</span>
     </a>
-    <a class="sc" href="#associations">
+    <a class="sc" href="associations.html">
       <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
       <span>Annuaire</span>
     </a>
@@ -1921,10 +1921,92 @@ footer { background: #1a1a1a; color: #fff; padding: 40px 40px 18px; }
   </div>
   <a class="see-all" href="#">Toutes les actualités <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
 
+  <div class="section-divider"><span></span></div>
+
   </div><!-- /main-inner -->
 
+  <!-- ══ COMMERCES PARTENAIRES ══ -->
+  <div class="main-inner" style="padding-top:20px;padding-bottom:40px">
+  <h2 class="section-title reveal" id="commerces">Commerces &amp; artisans partenaires</h2>
+  <p class="section-subtitle reveal reveal-delay-1">Les adresses incontournables de Rochefort-du-Gard</p>
+  <div class="commerce-filters">
+    <button class="cf-btn active" onclick="filterCommerce(this,'all')">Tous</button>
+    <button class="cf-btn" onclick="filterCommerce(this,'resto')">Restauration</button>
+    <button class="cf-btn" onclick="filterCommerce(this,'artisan')">Artisans</button>
+    <button class="cf-btn" onclick="filterCommerce(this,'service')">Services</button>
+    <button class="cf-btn" onclick="filterCommerce(this,'loisir')">Loisirs</button>
+  </div>
+  <div class="commerce-grid" id="commerce-grid">
+    <a class="commerce-card reveal" href="#" data-cat="resto">
+      <img class="cc-img" src="/assets/commerces/au-terroir-gardois.jpg" alt="Au Terroir Gardois" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="cc-img-fallback" style="display:none;background:#e8f0fb;color:#1a4fa8">AT</div>
+      <div class="cc-body">
+        <div class="cc-name">Au Terroir Gardois</div>
+        <div class="cc-cat"><span class="cc-badge" style="background:#e8f0fb;color:#1a4fa8">Restauration</span></div>
+        <div class="cc-hours"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Mar–Dim · 12h–14h &amp; 19h–22h</div>
+      </div>
+      <div class="cc-arrow"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></div>
+    </a>
+    <a class="commerce-card reveal reveal-delay-1" href="#" data-cat="artisan">
+      <img class="cc-img" src="/assets/commerces/maconnerie-blanc.jpg" alt="Maçonnerie Blanc" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="cc-img-fallback" style="display:none;background:#fff3e0;color:#e65c00">MB</div>
+      <div class="cc-body">
+        <div class="cc-name">Maçonnerie Blanc &amp; Fils</div>
+        <div class="cc-cat"><span class="cc-badge" style="background:#fff3e0;color:#e65c00">Artisan</span></div>
+        <div class="cc-hours"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Lun–Ven · 8h–18h</div>
+      </div>
+      <div class="cc-arrow"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></div>
+    </a>
+    <a class="commerce-card reveal reveal-delay-2" href="#" data-cat="service">
+      <img class="cc-img" src="/assets/commerces/pharmacie.jpg" alt="Pharmacie du Village" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="cc-img-fallback" style="display:none;background:#e8f5e9;color:#2e7d32">PH</div>
+      <div class="cc-body">
+        <div class="cc-name">Pharmacie du Village</div>
+        <div class="cc-cat"><span class="cc-badge" style="background:#e8f5e9;color:#2e7d32">Service</span></div>
+        <div class="cc-hours"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Lun–Sam · 8h30–19h30</div>
+      </div>
+      <div class="cc-arrow"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></div>
+    </a>
+    <a class="commerce-card reveal reveal-delay-1" href="#" data-cat="loisir">
+      <img class="cc-img" src="/assets/commerces/espace-ceramique.jpg" alt="Espace Céramique" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="cc-img-fallback" style="display:none;background:#f3e5f5;color:#7b1fa2">EC</div>
+      <div class="cc-body">
+        <div class="cc-name">Espace Céramique</div>
+        <div class="cc-cat"><span class="cc-badge" style="background:#f3e5f5;color:#7b1fa2">Loisirs</span></div>
+        <div class="cc-hours"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Mer–Dim · 10h–18h</div>
+      </div>
+      <div class="cc-arrow"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></div>
+    </a>
+    <a class="commerce-card reveal reveal-delay-3" href="#" data-cat="resto">
+      <img class="cc-img" src="/assets/commerces/boulangerie-pignol.jpg" alt="Boulangerie Pignol" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="cc-img-fallback" style="display:none;background:#fce4ec;color:#c62828">BP</div>
+      <div class="cc-body">
+        <div class="cc-name">Boulangerie Pignol</div>
+        <div class="cc-cat"><span class="cc-badge" style="background:#fce4ec;color:#c62828">Restauration</span></div>
+        <div class="cc-hours"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Lun–Sam · 6h30–13h</div>
+      </div>
+      <div class="cc-arrow"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></div>
+    </a>
+    <a class="commerce-card reveal reveal-delay-2" href="#" data-cat="artisan">
+      <img class="cc-img" src="/assets/commerces/electricite-provencale.jpg" alt="Électricité Provençale" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="cc-img-fallback" style="display:none;background:#e0f7fa;color:#00695c">EP</div>
+      <div class="cc-body">
+        <div class="cc-name">Électricité Provençale</div>
+        <div class="cc-cat"><span class="cc-badge" style="background:#e0f7fa;color:#00695c">Artisan</span></div>
+        <div class="cc-hours"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Lun–Ven · 7h30–17h30</div>
+      </div>
+      <div class="cc-arrow"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></div>
+    </a>
+  </div>
+  <div style="text-align:center;margin-top:24px">
+    <a class="see-all see-all-dark" href="#" style="display:inline-flex">Tous les commerces <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left:6px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+  </div>
+  </div><!-- /main-inner commerces -->
+
+  <div class="section-divider"><span></span></div>
+
   <!-- ══ AGENDA ══ -->
-  <div class="main-inner">
+  <div class="main-inner" style="padding-top:20px;padding-bottom:60px">
   <div class="agenda-section" id="agenda">
     <div class="agenda-header">
       <div class="agenda-header-l">
@@ -2054,140 +2136,6 @@ footer { background: #1a1a1a; color: #fff; padding: 40px 40px 18px; }
     </a>
   </div>
 
-  <!-- ══ COMMERCES PARTENAIRES ══ -->
-  <h2 class="section-title reveal" id="commerces">Commerces &amp; artisans</h2>
-  <p class="section-subtitle reveal reveal-delay-1">Les adresses incontournables de Rochefort-du-Gard</p>
-  <div class="commerce-filters">
-    <button class="cf-btn active" onclick="filterCommerce(this,'all')">Tous</button>
-    <button class="cf-btn" onclick="filterCommerce(this,'resto')">Restauration</button>
-    <button class="cf-btn" onclick="filterCommerce(this,'artisan')">Artisans</button>
-    <button class="cf-btn" onclick="filterCommerce(this,'service')">Services</button>
-    <button class="cf-btn" onclick="filterCommerce(this,'loisir')">Loisirs</button>
-  </div>
-  <div class="commerce-grid" id="commerce-grid">
-    <a class="commerce-card reveal" href="#" data-cat="resto">
-      <img class="cc-img" src="/assets/commerces/au-terroir-gardois.jpg" alt="Au Terroir Gardois" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="cc-img-fallback" style="display:none;background:#e8f0fb;color:#1a4fa8">AT</div>
-      <div class="cc-body">
-        <div class="cc-name">Au Terroir Gardois</div>
-        <div class="cc-cat"><span class="cc-badge" style="background:#e8f0fb;color:#1a4fa8">Restauration</span></div>
-        <div class="cc-hours"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Mar–Dim · 12h–14h &amp; 19h–22h</div>
-      </div>
-      <div class="cc-arrow"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></div>
-    </a>
-    <a class="commerce-card reveal reveal-delay-1" href="#" data-cat="artisan">
-      <img class="cc-img" src="/assets/commerces/maconnerie-blanc.jpg" alt="Maçonnerie Blanc" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="cc-img-fallback" style="display:none;background:#fff3e0;color:#e65c00">MB</div>
-      <div class="cc-body">
-        <div class="cc-name">Maçonnerie Blanc &amp; Fils</div>
-        <div class="cc-cat"><span class="cc-badge" style="background:#fff3e0;color:#e65c00">Artisan</span></div>
-        <div class="cc-hours"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Lun–Ven · 8h–18h</div>
-      </div>
-      <div class="cc-arrow"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></div>
-    </a>
-    <a class="commerce-card reveal reveal-delay-2" href="#" data-cat="service">
-      <img class="cc-img" src="/assets/commerces/pharmacie.jpg" alt="Pharmacie du Village" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="cc-img-fallback" style="display:none;background:#e8f5e9;color:#2e7d32">PH</div>
-      <div class="cc-body">
-        <div class="cc-name">Pharmacie du Village</div>
-        <div class="cc-cat"><span class="cc-badge" style="background:#e8f5e9;color:#2e7d32">Service</span></div>
-        <div class="cc-hours"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Lun–Sam · 8h30–19h30</div>
-      </div>
-      <div class="cc-arrow"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></div>
-    </a>
-    <a class="commerce-card reveal reveal-delay-1" href="#" data-cat="loisir">
-      <img class="cc-img" src="/assets/commerces/espace-ceramique.jpg" alt="Espace Céramique" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="cc-img-fallback" style="display:none;background:#f3e5f5;color:#7b1fa2">EC</div>
-      <div class="cc-body">
-        <div class="cc-name">Espace Céramique</div>
-        <div class="cc-cat"><span class="cc-badge" style="background:#f3e5f5;color:#7b1fa2">Loisirs</span></div>
-        <div class="cc-hours"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Mer–Dim · 10h–18h</div>
-      </div>
-      <div class="cc-arrow"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></div>
-    </a>
-    <a class="commerce-card reveal reveal-delay-3" href="#" data-cat="resto">
-      <img class="cc-img" src="/assets/commerces/boulangerie-pignol.jpg" alt="Boulangerie Pignol" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="cc-img-fallback" style="display:none;background:#fce4ec;color:#c62828">BP</div>
-      <div class="cc-body">
-        <div class="cc-name">Boulangerie Pignol</div>
-        <div class="cc-cat"><span class="cc-badge" style="background:#fce4ec;color:#c62828">Restauration</span></div>
-        <div class="cc-hours"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Lun–Sam · 6h30–13h</div>
-      </div>
-      <div class="cc-arrow"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></div>
-    </a>
-    <a class="commerce-card reveal reveal-delay-2" href="#" data-cat="artisan">
-      <img class="cc-img" src="/assets/commerces/electricite-provencale.jpg" alt="Électricité Provençale" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="cc-img-fallback" style="display:none;background:#e0f7fa;color:#00695c">EP</div>
-      <div class="cc-body">
-        <div class="cc-name">Électricité Provençale</div>
-        <div class="cc-cat"><span class="cc-badge" style="background:#e0f7fa;color:#00695c">Artisan</span></div>
-        <div class="cc-hours"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Lun–Ven · 7h30–17h30</div>
-      </div>
-      <div class="cc-arrow"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></div>
-    </a>
-  </div>
-  <div style="text-align:center;margin-top:24px">
-    <a class="see-all see-all-dark" href="#" style="display:inline-flex">Tous les commerces <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left:6px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-  </div>
-
-  <!-- ══ VIE PRATIQUE ══ -->
-  <h2 class="section-title reveal" id="pratique">Vie pratique</h2>
-  <div class="pratique-grid">
-    <div class="pratique-card">
-      <div class="pratique-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
-      <div>
-        <div class="pratique-card-title">Mairie — Accueil</div>
-        <div class="pratique-card-text">Place de la Mairie, 30650 Rochefort-du-Gard<br>Tél. 04 66 33 00 00</div>
-      </div>
-    </div>
-    <div class="pratique-card">
-      <div class="pratique-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.4 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.6a16 16 0 0 0 6 6l.72-.72a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.28 18z"/></svg></div>
-      <div>
-        <div class="pratique-card-title">Numéros utiles</div>
-        <div class="pratique-card-text">Urgences : 15 / 17 / 18<br>Police municipale : 04 66 33 01 01</div>
-      </div>
-    </div>
-    <div class="pratique-card">
-      <div class="pratique-icon"><svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div>
-      <div>
-        <div class="pratique-card-title">Collecte des déchets</div>
-        <div class="pratique-card-text">Ordures ménagères : lundi & jeudi<br>Tri sélectif : mercredi</div>
-      </div>
-    </div>
-    <div class="pratique-card">
-      <div class="pratique-icon"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
-      <div>
-        <div class="pratique-card-title">Eau & assainissement</div>
-        <div class="pratique-card-text">Coupures programmées & urgences réseau<br>Tél. 04 66 33 02 02</div>
-      </div>
-    </div>
-    <div class="pratique-horaires">
-      <h3>Horaires d'ouverture de la mairie</h3>
-      <div class="horaires-grid">
-        <div class="horaire-jour">
-          <div class="horaire-jour-label">Lun.</div>
-          <div class="horaire-jour-hours">8h30<br>12h00<br>14h00<br>17h30</div>
-        </div>
-        <div class="horaire-jour">
-          <div class="horaire-jour-label">Mar.</div>
-          <div class="horaire-jour-hours">8h30<br>12h00<br>14h00<br>17h30</div>
-        </div>
-        <div class="horaire-jour">
-          <div class="horaire-jour-label">Mer.</div>
-          <div class="horaire-jour-hours">8h30<br>12h00<br>—</div>
-        </div>
-        <div class="horaire-jour">
-          <div class="horaire-jour-label">Jeu.</div>
-          <div class="horaire-jour-hours">8h30<br>12h00<br>14h00<br>17h30</div>
-        </div>
-        <div class="horaire-jour">
-          <div class="horaire-jour-label">Ven.</div>
-          <div class="horaire-jour-hours">8h30<br>12h00<br>14h00<br>17h00</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- ══ ÉLUS & CONSEIL ══ -->
   <h2 class="section-title reveal" id="elus">Élus & Conseil municipal</h2>
   <p class="section-subtitle reveal reveal-delay-1">Mandat 2020–2026</p>
@@ -2224,103 +2172,6 @@ footer { background: #1a1a1a; color: #fff; padding: 40px 40px 18px; }
   <a class="see-all" href="#">Voir tous les élus <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
   </div><!-- /main-inner -->
   </div><!-- /bloc-white -->
-
-  <!-- ═══════ BLOC BEIGE 2 : Urbanisme / Associations ═══════ -->
-  <div class="bloc-beige">
-  <div class="main-inner">
-  <!-- ══ URBANISME ══ -->
-  <h2 class="section-title reveal" id="urbanisme">Urbanisme & Travaux</h2>
-  <div class="urba-grid">
-    <div class="urba-card">
-      <span class="urba-badge actif">En cours</span>
-      <div class="urba-title">Réfection de la rue du Mistral</div>
-      <div class="urba-text">Travaux de voirie prévus du 10 au 28 juin. Circulation alternée. Accès riverains maintenu.</div>
-      <div class="urba-date">Mis à jour le 5 juin 2026</div>
-    </div>
-    <div class="urba-card">
-      <span class="urba-badge info">Information</span>
-      <div class="urba-title">PLU — Plan Local d'Urbanisme</div>
-      <div class="urba-text">Consultez les règles d'urbanisme applicables sur le territoire de la commune.</div>
-      <div class="urba-date">Approuvé le 14 mars 2024</div>
-    </div>
-    <div class="urba-card">
-      <span class="urba-badge doc">Document</span>
-      <div class="urba-title">Permis de construire</div>
-      <div class="urba-text">Déposez votre demande de permis de construire ou de déclaration préalable en ligne.</div>
-      <div class="urba-date">Traitement sous 2 mois</div>
-    </div>
-    <div class="urba-card">
-      <span class="urba-badge actif">En cours</span>
-      <div class="urba-title">Nouveau city-stade</div>
-      <div class="urba-text">Construction d'un espace multisport au quartier des Pins. Livraison prévue septembre 2026.</div>
-      <div class="urba-date">Avancement : 60%</div>
-    </div>
-    <div class="urba-card">
-      <span class="urba-badge info">Information</span>
-      <div class="urba-title">Assainissement collectif</div>
-      <div class="urba-text">Raccordement obligatoire au réseau public. Diagnostic préalable à effectuer sous 2 ans.</div>
-      <div class="urba-date">Délai : avant le 31/12/2027</div>
-    </div>
-    <div class="urba-card">
-      <span class="urba-badge doc">Document</span>
-      <div class="urba-title">Carte des risques naturels</div>
-      <div class="urba-text">Plan de prévention des risques inondation et incendie de forêt. Consultation en mairie.</div>
-      <div class="urba-date">Version 2025</div>
-    </div>
-  </div>
-
-  <div class="section-divider"><span></span></div>
-
-  <!-- ══ ASSOCIATIONS ══ -->
-  <h2 class="section-title reveal" id="associations">Associations</h2>
-  <p class="section-subtitle reveal reveal-delay-1">La vie associative de Rochefort-du-Gard</p>
-  <div class="asso-grid">
-    <div class="asso-card">
-      <div class="asso-icon sport"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a4fa8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M4.93 4.93l14.14 14.14"/><path d="M9 3.5C9 3.5 8 8 10 12s6 7.5 6 7.5"/><path d="M15 3.5S16 8 14 12s-6 7.5-6 7.5"/></svg></div>
-      <div>
-        <div class="asso-name">Football Club Rochefortais</div>
-        <div class="asso-type">Sport — Tous âges</div>
-      </div>
-    </div>
-    <div class="asso-card">
-      <div class="asso-icon culture"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c2185b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-      <div>
-        <div class="asso-name">Les Amis du Patrimoine</div>
-        <div class="asso-type">Culture & Histoire</div>
-      </div>
-    </div>
-    <div class="asso-card">
-      <div class="asso-icon nature"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00796b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8C8 10 5.9 16.17 3.82 19c2.22-4 5.55-6 10.18-7"/><path d="M21 3a14.8 14.8 0 0 1-3.17 9.26A14.8 14.8 0 0 1 9 17"/><line x1="12" y1="22" x2="12" y2="17"/></svg></div>
-      <div>
-        <div class="asso-name">Jardiniers du Gard</div>
-        <div class="asso-type">Jardinage & Environnement</div>
-      </div>
-    </div>
-    <div class="asso-card">
-      <div class="asso-icon senior"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e65100" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-      <div>
-        <div class="asso-name">Club de l'Amitié</div>
-        <div class="asso-type">Seniors — Loisirs</div>
-      </div>
-    </div>
-    <div class="asso-card">
-      <div class="asso-icon youth"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6a1b9a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
-      <div>
-        <div class="asso-name">Atelier Jeunes Artistes</div>
-        <div class="asso-type">Jeunesse — Création</div>
-      </div>
-    </div>
-    <div class="asso-card">
-      <div class="asso-icon music"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1565c0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
-      <div>
-        <div class="asso-name">Harmonie Communale</div>
-        <div class="asso-type">Musique — Fanfare</div>
-      </div>
-    </div>
-  </div>
-  <a class="see-all" href="#">Toutes les associations <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-  </div><!-- /main-inner -->
-  </div><!-- /bloc-beige -->
 
   <!-- ═══════ BLOC CONTACT ═══════ -->
   <div class="bloc-contact">
