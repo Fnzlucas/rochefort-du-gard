@@ -149,7 +149,7 @@ img { display: block; max-width: 100%; }
   height: 620px;
   overflow: hidden;
   display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
+  align-items: flex-start; justify-content: flex-end;
   background: linear-gradient(160deg,#2d4a35 0%,#4a7048 35%,#6a9060 60%,#557a4a 100%);
   padding-bottom: 80px;
 }
@@ -169,8 +169,8 @@ img { display: block; max-width: 100%; }
 }
 .hero-content {
   position: relative; z-index: 3;
-  text-align: center;
-  padding: 0 40px;
+  text-align: left;
+  padding: 0 40px 40px;
   width: 100%;
   max-width: 1200px;
 }
@@ -1905,7 +1905,7 @@ footer { background: #1a1a1a; color: #fff; padding: 40px 40px 18px; }
       <img class="actu-main-img" src="/assets/broyage.jpg" alt="Broyage" onerror="this.style.display='none'">
       <div class="actu-main-overlay"></div>
       <div class="actu-main-body">
-        <div class="actu-tag"></div>
+        <div class="actu-tag">{{DATA:IMAGE|IMAGE_2}}</div>
         <div class="actu-main-title">Broyage à domicile – Opération reconduite en 2026</div>
         <div class="actu-main-text">Broyage à domicile – Opération reconduite en 2026. Broyage à domicile des cattimus amuche à laoner captsu oivent doin plus excolutos, high contrast.</div>
       </div>
